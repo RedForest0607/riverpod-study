@@ -1,9 +1,10 @@
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-part 'switch.g.dart';
+final switchProvider = NotifierProvider<SwitchNotifier, String> (() {
+  return SwitchNotifier();
+});
 
-@riverpod
-class Switch extends _$Switch {
+class SwitchNotifier extends Notifier<String> {
 
   @override
   String build() {

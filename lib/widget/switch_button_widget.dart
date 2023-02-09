@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_study/notifiers/switch.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SwitchButtonWidget extends ConsumerWidget {
+class SwitchButtonWidget extends HookConsumerWidget {
   const SwitchButtonWidget({super.key});
 
   @override
