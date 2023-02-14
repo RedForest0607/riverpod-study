@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_study/widget/todo_screen.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_study/screen/dashboard/dashboard_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: TodoApp()));
@@ -11,12 +11,11 @@ class TodoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-      title: "TodoApp",
+      title: "Terraforming Dashboard",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.indigo),
-      home: const TodoScreen(),
+      theme: ThemeData(primaryColor: Colors.yellow.shade900),
+      home: const DashboardScreen(),
     );
   }
 }

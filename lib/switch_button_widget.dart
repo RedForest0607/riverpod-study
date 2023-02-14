@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/notifiers/switch.dart';
+import 'package:riverpod_study/switch.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SwitchButtonWidget extends HookConsumerWidget {
@@ -11,10 +11,14 @@ class SwitchButtonWidget extends HookConsumerWidget {
 
     return Scaffold(
       body: Center(
-          child : Column(children: [
-        Text(switchText),
-        IconButton(onPressed: () => ref.read(switchProvider.notifier).switchText(), icon: const Icon(Icons.cached))
-      ],)),
+          child: Column(
+        children: [
+          Text(switchText),
+          IconButton(
+              onPressed: () => ref.read(switchProvider.notifier).switchText(),
+              icon: const Icon(Icons.cached))
+        ],
+      )),
     );
   }
 }
