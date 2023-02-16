@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/switch_button_widget.dart';
 import 'block_header_widget.dart';
+import 'generation_counter_widget.dart';
 
 class GenerationBlockWidget extends StatelessWidget {
   const GenerationBlockWidget({super.key, this.height});
@@ -16,7 +16,9 @@ class GenerationBlockWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           BlockHeaderWidget(height: height! / 5),
-          const GenerationBlockWidget()
+          const Expanded(
+            child: GenerationCounterWidget(),
+          ),
         ],
       ),
     );

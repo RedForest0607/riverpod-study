@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/enum/counter_enum.dart';
-
-import 'widget/generation_block_widget.dart';
+import 'package:riverpod_study/screen/dashboard/widget/generation_block_widget.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -9,6 +8,16 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        backgroundColor: Colors.yellow.shade900,
+        elevation: 0,
+        title: const Text(
+          '테라포밍 마스 대시보드',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+        ),
+        centerTitle: true,
+      ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Column(
