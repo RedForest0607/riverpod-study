@@ -1,7 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final generationProvider = NotifierProvider<GenerationNotifier, int>(() {
-  return GenerationNotifier();
+  GenerationNotifier generationNotifier = GenerationNotifier();
+  return generationNotifier;
 });
 
 class GenerationNotifier extends Notifier<int> {

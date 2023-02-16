@@ -3,11 +3,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/screen/dashboard/dashboard_screen.dart';
 
 void main() {
-  runApp(const ProviderScope(child: TodoApp()));
+  runApp(const ProviderScope(child: TerraformingDashboard()));
 }
 
-class TodoApp extends StatelessWidget {
-  const TodoApp({super.key});
+class TerraformingDashboard extends StatelessWidget {
+  const TerraformingDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
