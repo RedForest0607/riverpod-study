@@ -9,6 +9,7 @@ class BlockHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       height: height,
       decoration: BoxDecoration(
         color: CounterEnum.generation.mainColor,

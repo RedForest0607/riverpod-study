@@ -318,4 +318,9 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/dart,androidstudio,flutter,macos,windows,linux,visualstudiocode
 
+/web
+/build
+/macos
+/.idea
+.metadata
 #
