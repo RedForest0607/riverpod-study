@@ -33,10 +33,11 @@ class BlockHeaderWidget extends StatelessWidget {
               child: Text(
                 CounterEnum.generation.title,
                 style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    height: 1.35,
-                    fontSize: 20),
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  height: 1.35,
+                  fontSize: 20
+                ),
               ),
             ),
           ],
