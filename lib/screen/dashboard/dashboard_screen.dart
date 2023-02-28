@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/enum/counter_enum.dart';
-import 'package:riverpod_study/screen/dashboard/widget/generation_block_widget.dart';
+import 'package:riverpod_study/screen/dashboard/widget/resource_block_widget.dart';
+import 'package:riverpod_study/screen/dashboard/widget/generation/generation_block_widget.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -14,7 +15,8 @@ class DashboardScreen extends StatelessWidget {
         elevation: 0,
         title: const Text(
           '테라포밍 마스 대시보드',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
         ),
         centerTitle: true,
       ),
@@ -33,7 +35,11 @@ class DashboardScreen extends StatelessWidget {
               ),
               Expanded(
                 child: GenerationBlockWidget(
-                    height: (MediaQuery.of(context).size.height / 2)),
+                  height: (MediaQuery.of(context).size.height * 0.3),
+                  color: CounterEnum.generation.mainColor,
+                  title: CounterEnum.generation.title,
+                  widgetIcon: CounterEnum.generation.icon,
+                ),
               ),
             ]),
             Row(children: [
@@ -42,14 +48,36 @@ class DashboardScreen extends StatelessWidget {
                     textAlign: TextAlign.center),
               ),
               Expanded(
-                child:
-                    Text(CounterEnum.steel.title, textAlign: TextAlign.center),
-              ),
+                  child: ResourceBlockWidget(
+                height: (MediaQuery.of(context).size.height * 0.3),
+                color: CounterEnum.steel.mainColor,
+                title: CounterEnum.steel.title,
+                widgetIcon: CounterEnum.steel.icon,
+              )),
               Expanded(
                 child: Text(CounterEnum.titanium.title,
                     textAlign: TextAlign.center),
               ),
             ]),
+            Row(
+              children: [
+                Expanded(
+                    child: ResourceBlockWidget(
+                  height: (MediaQuery.of(context).size.height * 0.3),
+                  color: CounterEnum.plants.mainColor,
+                  title: CounterEnum.plants.title,
+                  widgetIcon: CounterEnum.plants.icon,
+                )),
+                Expanded(
+                  child: Text(CounterEnum.energy.title,
+                      textAlign: TextAlign.center),
+                ),
+                Expanded(
+                  child:
+                      Text(CounterEnum.heat.title, textAlign: TextAlign.center),
+                ),
+              ],
+            ),
           ],
         ),
       ),

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/enum/counter_enum.dart';
 
 class BlockHeaderWidget extends StatelessWidget {
-  const BlockHeaderWidget({super.key, this.height});
+  const BlockHeaderWidget(
+      {super.key, this.height, this.color, this.title, this.widgetIcon});
 
   final double? height;
+  final Color? color;
+  final String? title;
+  final IconData? widgetIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +15,10 @@ class BlockHeaderWidget extends StatelessWidget {
       width: double.infinity,
       height: height,
       decoration: BoxDecoration(
-        color: CounterEnum.generation.mainColor,
-        border: Border.all(),
+        color: color,
+        border: Border.all(
+          color: Colors.white,
+        ),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(10),
           topRight: Radius.circular(10),
@@ -26,18 +31,16 @@ class BlockHeaderWidget extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            const Icon(IconData(0xf005c, fontFamily: 'MaterialIcons'),
-                color: Colors.white, size: 30),
+            Icon(widgetIcon, color: Colors.white, size: 30),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
               child: Text(
-                CounterEnum.generation.title,
+                title!,
                 style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  height: 1.35,
-                  fontSize: 20
-                ),
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    height: 1.35,
+                    fontSize: 20),
               ),
             ),
           ],

@@ -18,4 +18,8 @@ class GenerationNotifier extends Notifier<int> {
   void reset() {
     state = 1;
   }
+  
+  void set(int generation) {
+    state = generation;
+  }
 }
