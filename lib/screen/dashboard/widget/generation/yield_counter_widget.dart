@@ -4,16 +4,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:riverpod_study/enum/counter_enum.dart';
 import 'package:riverpod_study/notifiers/plant.dart';
 
-class ResourceCounterWidget extends HookConsumerWidget {
-  const ResourceCounterWidget({super.key, required this.title});
+class YieldCounterWidget extends HookConsumerWidget {
+  const YieldCounterWidget({super.key, required this.title});
 
   final String title;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Plant plant;
+    Plant yield;
 
-    plant = ref.watch(plantProvider);
+    yield = ref.watch(plantProvider);
 
     return Container(
       height: null,
@@ -51,7 +51,7 @@ class ResourceCounterWidget extends HookConsumerWidget {
           ),
           Expanded(
             child: Text(
-              plant.resource.toString(),
+              yield.toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *
