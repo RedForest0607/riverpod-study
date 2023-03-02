@@ -10,75 +10,106 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
-      appBar: AppBar(
-        backgroundColor: Colors.yellow.shade900,
-        elevation: 0,
-        title: const Text(
-          '테라포밍 마스 대시보드',
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height *
+            0.05), // here the desired height
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
         ),
-        centerTitle: true,
       ),
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Row(children: [
-              Expanded(
-                child: Text(CounterEnum.terraformingRate.title,
-                    textAlign: TextAlign.center),
+      body: SafeArea(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.fromLTRB(
+                    0, 0, MediaQuery.of(context).size.width * 0.04, 0),
+                child: Row(children: [
+                  Expanded(
+                    child: Text(CounterEnum.terraformingRate.title,
+                        textAlign: TextAlign.center),
+                  ),
+                  const Expanded(
+                    child: Text('HEADER', textAlign: TextAlign.center),
+                  ),
+                  Expanded(
+                    child: GenerationBlockWidget(
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      color: CounterEnum.generation.mainColor,
+                      title: CounterEnum.generation.title,
+                      widgetIcon: CounterEnum.generation.icon,
+                    ),
+                  ),
+                ]),
               ),
-              const Expanded(
-                child: Text("HEADER", textAlign: TextAlign.center),
+              Container(
+                padding: EdgeInsets.fromLTRB(
+                    0, 0, MediaQuery.of(context).size.width * 0.04, 0),
+                child: Row(children: [
+                  Expanded(
+                      child: ResourceBlockWidget(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    color: CounterEnum.megaCredit.mainColor,
+                    id: CounterEnum.megaCredit.id,
+                    title: CounterEnum.megaCredit.title,
+                    widgetIcon: CounterEnum.megaCredit.icon,
+                  )),
+                  Expanded(
+                      child: ResourceBlockWidget(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    color: CounterEnum.steel.mainColor,
+                    id: CounterEnum.steel.id,
+                    title: CounterEnum.steel.title,
+                    widgetIcon: CounterEnum.steel.icon,
+                  )),
+                  Expanded(
+                      child: ResourceBlockWidget(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    color: CounterEnum.titanium.mainColor,
+                    id: CounterEnum.titanium.id,
+                    title: CounterEnum.titanium.title,
+                    widgetIcon: CounterEnum.titanium.icon,
+                  )),
+                ]),
               ),
-              Expanded(
-                child: GenerationBlockWidget(
-                  height: (MediaQuery.of(context).size.height * 0.3),
-                  color: CounterEnum.generation.mainColor,
-                  title: CounterEnum.generation.title,
-                  widgetIcon: CounterEnum.generation.icon,
+              Container(
+                padding: EdgeInsets.fromLTRB(
+                    0, 0, MediaQuery.of(context).size.width * 0.04, 0),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: ResourceBlockWidget(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      color: CounterEnum.plants.mainColor,
+                      id: CounterEnum.plants.id,
+                      title: CounterEnum.plants.title,
+                      widgetIcon: CounterEnum.plants.icon,
+                    )),
+                    Expanded(
+                        child: ResourceBlockWidget(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      color: CounterEnum.energy.mainColor,
+                      id: CounterEnum.energy.id,
+                      title: CounterEnum.energy.title,
+                      widgetIcon: CounterEnum.energy.icon,
+                    )),
+                    Expanded(
+                        child: ResourceBlockWidget(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      color: CounterEnum.heat.mainColor,
+                      id: CounterEnum.heat.id,
+                      title: CounterEnum.heat.title,
+                      widgetIcon: CounterEnum.heat.icon,
+                    )),
+                  ],
                 ),
               ),
-            ]),
-            Row(children: [
-              Expanded(
-                child: Text(CounterEnum.megaCredit.title,
-                    textAlign: TextAlign.center),
-              ),
-              Expanded(
-                  child: ResourceBlockWidget(
-                height: (MediaQuery.of(context).size.height * 0.3),
-                color: CounterEnum.steel.mainColor,
-                title: CounterEnum.steel.title,
-                widgetIcon: CounterEnum.steel.icon,
-              )),
-              Expanded(
-                child: Text(CounterEnum.titanium.title,
-                    textAlign: TextAlign.center),
-              ),
-            ]),
-            Row(
-              children: [
-                Expanded(
-                    child: ResourceBlockWidget(
-                  height: (MediaQuery.of(context).size.height * 0.3),
-                  color: CounterEnum.plants.mainColor,
-                  title: CounterEnum.plants.title,
-                  widgetIcon: CounterEnum.plants.icon,
-                )),
-                Expanded(
-                  child: Text(CounterEnum.energy.title,
-                      textAlign: TextAlign.center),
-                ),
-                Expanded(
-                  child:
-                      Text(CounterEnum.heat.title, textAlign: TextAlign.center),
-                ),
-              ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/notifiers/generation.dart';
+import 'package:riverpod_study/enum/counter_enum.dart';
+import 'package:riverpod_study/notifiers/resource.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class GenerationCounterWidget extends HookConsumerWidget {
@@ -8,7 +9,7 @@ class GenerationCounterWidget extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    int generation = ref.watch(generationProvider);
+    Resource resource = ref.watch(resourceProvider);
 
     return Container(
       height: null,
@@ -28,12 +29,12 @@ class GenerationCounterWidget extends HookConsumerWidget {
           ),
           Expanded(
             child: Text(
-              generation.toString(),
+              resource.getValue(CounterEnum.generation.id).toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *
                     MediaQuery.of(context).size.width *
-                    0.00003,
+                    0.00004,
               ),
               textAlign: TextAlign.center,
             ),
@@ -55,25 +56,27 @@ class GenerationCounterWidget extends HookConsumerWidget {
                       barrierDismissible: false,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          content: const Text("다음 세대로 넘어가시겠습니까?"),
+                          content: const Text('다음 세대로 넘어가시겠습니까?'),
                           backgroundColor: Colors.black,
                           contentTextStyle:
                               const TextStyle(color: Colors.white),
                           actions: <Widget>[
                             TextButton(
                               onPressed: () => {
-                                ref.read(generationProvider.notifier).add(),
+                                ref
+                                    .read(resourceProvider.notifier)
+                                    .add(CounterEnum.generation.id),
                                 Navigator.pop(context, 'OK'),
                               },
                               child: Text(
-                                "확인",
+                                '확인',
                                 style: TextStyle(color: Colors.yellow.shade900),
                               ),
                             ),
                             TextButton(
-                              onPressed: () => Navigator.pop(context, "Cancel"),
+                              onPressed: () => Navigator.pop(context, 'Cancel'),
                               child: Text(
-                                "취소",
+                                '취소',
                                 style: TextStyle(color: Colors.yellow.shade900),
                               ),
                             ),

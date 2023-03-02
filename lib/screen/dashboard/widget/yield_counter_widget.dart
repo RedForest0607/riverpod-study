@@ -1,31 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:riverpod_study/enum/counter_enum.dart';
-import 'package:riverpod_study/notifiers/plant.dart';
+import 'package:riverpod_study/notifiers/resource.dart';
 
 class YieldCounterWidget extends HookConsumerWidget {
-  const YieldCounterWidget({super.key, required this.title});
+  const YieldCounterWidget({super.key, required this.id, required this.title});
 
+  final String id;
   final String title;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Plant yield;
-
-    yield = ref.watch(plantProvider);
+    Resource resource = ref.watch(resourceProvider);
 
     return Container(
       height: null,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.white,
-        ),
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(10),
-          bottomRight: Radius.circular(10),
-        ),
-      ),
       child: Row(
         children: [
           Expanded(
@@ -37,26 +26,23 @@ class YieldCounterWidget extends HookConsumerWidget {
                   FontAwesomeIcons.circleMinus,
                   size: MediaQuery.of(context).size.height *
                       MediaQuery.of(context).size.width *
-                      0.00003,
+                      0.000025,
                   color: Colors.white,
                 ),
                 onPressed: () => {
-                  if (CounterEnum.plants.title == title)
-                    {
-                      ref.read(plantProvider.notifier).minusResouce(),
-                    },
+                  ref.read(resourceProvider.notifier).subtract('${id}Yield'),
                 },
               ),
             ),
           ),
           Expanded(
             child: Text(
-              yield.toString(),
+              resource.getValue('${id}Yield').toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *
                     MediaQuery.of(context).size.width *
-                    0.00003,
+                    0.000035,
               ),
               textAlign: TextAlign.center,
             ),
@@ -70,14 +56,11 @@ class YieldCounterWidget extends HookConsumerWidget {
                   FontAwesomeIcons.circlePlus,
                   size: MediaQuery.of(context).size.height *
                       MediaQuery.of(context).size.width *
-                      0.00003,
+                      0.000025,
                   color: Colors.white,
                 ),
                 onPressed: () => {
-                  if (CounterEnum.plants.title == title)
-                    {
-                      ref.read(plantProvider.notifier).addResource(),
-                    },
+                  ref.read(resourceProvider.notifier).add('${id}Yield'),
                 },
               ),
             ),

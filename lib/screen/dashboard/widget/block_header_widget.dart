@@ -31,16 +31,23 @@ class BlockHeaderWidget extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            Icon(widgetIcon, color: Colors.white, size: 30),
+            Icon(widgetIcon,
+                color: Colors.white,
+                size: MediaQuery.of(context).size.height *
+                    MediaQuery.of(context).size.width *
+                    0.00004),
             Padding(
-              padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+              padding: EdgeInsets.fromLTRB(
+                  MediaQuery.of(context).size.width * 0.004, 0, 0, 0),
               child: Text(
                 title!,
-                style: const TextStyle(
+                style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    height: 1.35,
-                    fontSize: 20),
+                    height: 1.4,
+                    fontSize: MediaQuery.of(context).size.height *
+                        MediaQuery.of(context).size.width *
+                        0.000027),
               ),
             ),
           ],

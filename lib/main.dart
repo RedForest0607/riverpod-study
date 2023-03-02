@@ -12,7 +12,7 @@ class TerraformingDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Terraforming Dashboard",
+      title: 'Terraforming Dashboard',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.yellow.shade900),
       home: const DashboardScreen(),
