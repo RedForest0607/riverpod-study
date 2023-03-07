@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/screen/dashboard/widget/block_header_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/stock_count_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/yield_counter_widget.dart';
+import 'package:riverpod_study/screen/dashboard/widget/block/stock_count_widget.dart';
+import 'package:riverpod_study/screen/dashboard/widget/block/yield_counter_widget.dart';
 
 class ResourceBlockWidget extends StatelessWidget {
   const ResourceBlockWidget({

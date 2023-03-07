@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:riverpod_study/notifiers/resource.dart';
 
-class StockCounterWidget extends HookConsumerWidget {
-  const StockCounterWidget({super.key, required this.id, required this.title});
+class YieldCounterWidget extends HookConsumerWidget {
+  const YieldCounterWidget({super.key, required this.id, required this.title});
 
   final String id;
   final String title;
@@ -13,7 +13,7 @@ class StockCounterWidget extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     Resource resource = ref.watch(resourceProvider);
 
-    return Container(
+    return SizedBox(
       height: null,
       child: Row(
         children: [
@@ -26,18 +26,18 @@ class StockCounterWidget extends HookConsumerWidget {
                   FontAwesomeIcons.circleMinus,
                   size: MediaQuery.of(context).size.height *
                       MediaQuery.of(context).size.width *
-                      0.00003,
+                      0.000025,
                   color: Colors.white,
                 ),
                 onPressed: () => {
-                  ref.read(resourceProvider.notifier).subtract('${id}Stock'),
+                  ref.read(resourceProvider.notifier).subtract('${id}Yield'),
                 },
               ),
             ),
           ),
           Expanded(
             child: Text(
-              resource.getValue('${id}Stock').toString(),
+              resource.getValue('${id}Yield').toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *
@@ -56,11 +56,11 @@ class StockCounterWidget extends HookConsumerWidget {
                   FontAwesomeIcons.circlePlus,
                   size: MediaQuery.of(context).size.height *
                       MediaQuery.of(context).size.width *
-                      0.00003,
+                      0.000025,
                   color: Colors.white,
                 ),
                 onPressed: () => {
-                  ref.read(resourceProvider.notifier).add('${id}Stock'),
+                  ref.read(resourceProvider.notifier).add('${id}Yield'),
                 },
               ),
             ),

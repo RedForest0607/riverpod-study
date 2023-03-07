@@ -57,10 +57,23 @@ class GenerationCounterWidget extends HookConsumerWidget {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           content: const Text('다음 세대로 넘어가시겠습니까?'),
-                          backgroundColor: Colors.black,
+                          backgroundColor: Colors.grey.shade900,
                           contentTextStyle:
                               const TextStyle(color: Colors.white),
                           actions: <Widget>[
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'Cancel'),
+                              style: ButtonStyle(
+                                overlayColor:
+                                    MaterialStateProperty.resolveWith((states) {
+                                  return Colors.grey.shade700;
+                                }),
+                              ),
+                              child: Text(
+                                '취소',
+                                style: TextStyle(color: Colors.yellow.shade900),
+                              ),
+                            ),
                             TextButton(
                               onPressed: () => {
                                 ref
@@ -68,15 +81,14 @@ class GenerationCounterWidget extends HookConsumerWidget {
                                     .add(CounterEnum.generation.id),
                                 Navigator.pop(context, 'OK'),
                               },
+                              style: ButtonStyle(
+                                overlayColor:
+                                    MaterialStateProperty.resolveWith((states) {
+                                  return Colors.grey.shade700;
+                                }),
+                              ),
                               child: Text(
                                 '확인',
-                                style: TextStyle(color: Colors.yellow.shade900),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () => Navigator.pop(context, 'Cancel'),
-                              child: Text(
-                                '취소',
                                 style: TextStyle(color: Colors.yellow.shade900),
                               ),
                             ),

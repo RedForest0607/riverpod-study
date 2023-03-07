@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/enum/counter_enum.dart';
-import 'package:riverpod_study/screen/dashboard/widget/resource_block_widget.dart';
+import 'package:riverpod_study/screen/dashboard/widget/header/header_widget.dart';
+import 'package:riverpod_study/screen/dashboard/widget/block/resource_block_widget.dart';
 import 'package:riverpod_study/screen/dashboard/widget/generation/generation_block_widget.dart';
+import 'package:riverpod_study/screen/dashboard/widget/terraforming_rate/terraforming_rate_block_widget.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -30,15 +32,21 @@ class DashboardScreen extends StatelessWidget {
                     0, 0, MediaQuery.of(context).size.width * 0.04, 0),
                 child: Row(children: [
                   Expanded(
-                    child: Text(CounterEnum.terraformingRate.title,
-                        textAlign: TextAlign.center),
+                    child: TrBlockWidget(
+                      height: MediaQuery.of(context).size.height * 0.23,
+                      color: CounterEnum.terraformingRate.mainColor,
+                      title: CounterEnum.terraformingRate.title,
+                      widgetIcon: CounterEnum.terraformingRate.icon,
+                    ),
                   ),
-                  const Expanded(
-                    child: Text('HEADER', textAlign: TextAlign.center),
+                  Expanded(
+                    child: HeaderWidget(
+                      height: MediaQuery.of(context).size.height * 0.23,
+                    ),
                   ),
                   Expanded(
                     child: GenerationBlockWidget(
-                      height: MediaQuery.of(context).size.height * 0.25,
+                      height: MediaQuery.of(context).size.height * 0.23,
                       color: CounterEnum.generation.mainColor,
                       title: CounterEnum.generation.title,
                       widgetIcon: CounterEnum.generation.icon,
