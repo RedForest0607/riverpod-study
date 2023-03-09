@@ -30,59 +30,31 @@ class DashboardScreen extends StatelessWidget {
               Container(
                 padding: EdgeInsets.fromLTRB(
                     0, 0, MediaQuery.of(context).size.width * 0.04, 0),
-                child: Row(children: [
-                  Expanded(
-                    child: TrBlockWidget(
-                      height: MediaQuery.of(context).size.height * 0.23,
-                      color: CounterEnum.terraformingRate.mainColor,
-                      title: CounterEnum.terraformingRate.title,
-                      widgetIcon: CounterEnum.terraformingRate.icon,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TrBlockWidget(
+                        height: MediaQuery.of(context).size.height * 0.23,
+                        color: CounterEnum.terraformingRate.mainColor,
+                        title: CounterEnum.terraformingRate.title,
+                        widgetIcon: CounterEnum.terraformingRate.icon,
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: HeaderWidget(
-                      height: MediaQuery.of(context).size.height * 0.23,
+                    Expanded(
+                      child: HeaderWidget(
+                        height: MediaQuery.of(context).size.height * 0.23,
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: GenerationBlockWidget(
-                      height: MediaQuery.of(context).size.height * 0.23,
-                      color: CounterEnum.generation.mainColor,
-                      title: CounterEnum.generation.title,
-                      widgetIcon: CounterEnum.generation.icon,
+                    Expanded(
+                      child: GenerationBlockWidget(
+                        height: MediaQuery.of(context).size.height * 0.23,
+                        color: CounterEnum.generation.mainColor,
+                        title: CounterEnum.generation.title,
+                        widgetIcon: CounterEnum.generation.icon,
+                      ),
                     ),
-                  ),
-                ]),
-              ),
-              Container(
-                padding: EdgeInsets.fromLTRB(
-                    0, 0, MediaQuery.of(context).size.width * 0.04, 0),
-                child: Row(children: [
-                  Expanded(
-                      child: ResourceBlockWidget(
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    color: CounterEnum.megaCredit.mainColor,
-                    id: CounterEnum.megaCredit.id,
-                    title: CounterEnum.megaCredit.title,
-                    widgetIcon: CounterEnum.megaCredit.icon,
-                  )),
-                  Expanded(
-                      child: ResourceBlockWidget(
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    color: CounterEnum.steel.mainColor,
-                    id: CounterEnum.steel.id,
-                    title: CounterEnum.steel.title,
-                    widgetIcon: CounterEnum.steel.icon,
-                  )),
-                  Expanded(
-                      child: ResourceBlockWidget(
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    color: CounterEnum.titanium.mainColor,
-                    id: CounterEnum.titanium.id,
-                    title: CounterEnum.titanium.title,
-                    widgetIcon: CounterEnum.titanium.icon,
-                  )),
-                ]),
+                  ],
+                ),
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(
@@ -90,29 +62,67 @@ class DashboardScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                        child: ResourceBlockWidget(
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      color: CounterEnum.plants.mainColor,
-                      id: CounterEnum.plants.id,
-                      title: CounterEnum.plants.title,
-                      widgetIcon: CounterEnum.plants.icon,
-                    )),
+                      child: ResourceBlockWidget(
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        color: CounterEnum.megaCredit.mainColor,
+                        id: CounterEnum.megaCredit.id,
+                        title: CounterEnum.megaCredit.title,
+                        widgetIcon: CounterEnum.megaCredit.icon,
+                      ),
+                    ),
                     Expanded(
-                        child: ResourceBlockWidget(
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      color: CounterEnum.energy.mainColor,
-                      id: CounterEnum.energy.id,
-                      title: CounterEnum.energy.title,
-                      widgetIcon: CounterEnum.energy.icon,
-                    )),
+                      child: ResourceBlockWidget(
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        color: CounterEnum.steel.mainColor,
+                        id: CounterEnum.steel.id,
+                        title: CounterEnum.steel.title,
+                        widgetIcon: CounterEnum.steel.icon,
+                      ),
+                    ),
                     Expanded(
-                        child: ResourceBlockWidget(
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      color: CounterEnum.heat.mainColor,
-                      id: CounterEnum.heat.id,
-                      title: CounterEnum.heat.title,
-                      widgetIcon: CounterEnum.heat.icon,
-                    )),
+                      child: ResourceBlockWidget(
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        color: CounterEnum.titanium.mainColor,
+                        id: CounterEnum.titanium.id,
+                        title: CounterEnum.titanium.title,
+                        widgetIcon: CounterEnum.titanium.icon,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(
+                    0, 0, MediaQuery.of(context).size.width * 0.04, 0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ResourceBlockWidget(
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        color: CounterEnum.plants.mainColor,
+                        id: CounterEnum.plants.id,
+                        title: CounterEnum.plants.title,
+                        widgetIcon: CounterEnum.plants.icon,
+                      ),
+                    ),
+                    Expanded(
+                      child: ResourceBlockWidget(
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        color: CounterEnum.energy.mainColor,
+                        id: CounterEnum.energy.id,
+                        title: CounterEnum.energy.title,
+                        widgetIcon: CounterEnum.energy.icon,
+                      ),
+                    ),
+                    Expanded(
+                      child: ResourceBlockWidget(
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        color: CounterEnum.heat.mainColor,
+                        id: CounterEnum.heat.id,
+                        title: CounterEnum.heat.title,
+                        widgetIcon: CounterEnum.heat.icon,
+                      ),
+                    ),
                   ],
                 ),
               ),

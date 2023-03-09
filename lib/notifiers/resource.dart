@@ -172,11 +172,18 @@ class ResourceNotifier extends Notifier<Resource> {
   void add(String resourceType) {
     Resource newResource;
 
+    // TODO: 히스토리 저장
     switch (resourceType) {
       case 'generation':
-        // TODO: 모든 자원 생산 (메가크레딧 stock = 메가크레딧 yield + 테라포밍레이트)
-        // TODO: 에너지 stock을 열 sotck으로 전환
-        newResource = state.copyWith(generation: state.generation + 1);
+        newResource = state.copyWith(
+            generation: state.generation + 1,
+            megaCreditStock: state.megaCreditStock +
+                (state.megaCreditYield + state.terraformingRate),
+            steelStock: state.steelStock + state.steelYield,
+            titaniumStock: state.titaniumStock + state.titaniumYield,
+            plantsStock: state.plantsStock + state.plantsYield,
+            energyStock: state.energyYield,
+            heatStock: state.energyStock + (state.heatStock + state.heatYield));
         break;
       case 'terraformingRate':
         newResource =
@@ -230,6 +237,7 @@ class ResourceNotifier extends Notifier<Resource> {
   void subtract(String resourceType) {
     Resource newResource;
 
+    // TODO: 히스토리 저장
     switch (resourceType) {
       case 'terraformingRate':
         newResource = state.copyWith(
@@ -315,6 +323,7 @@ class ResourceNotifier extends Notifier<Resource> {
   void set(String resourceType, int value) {
     Resource newResource;
 
+    // TODO: 히스토리 저장
     switch (resourceType) {
       case 'generation':
         newResource = state.copyWith(generation: value);
@@ -363,6 +372,10 @@ class ResourceNotifier extends Notifier<Resource> {
         break;
     }
     state = newResource;
+  }
+
+  void recordHistory() {
+
   }
 }
 

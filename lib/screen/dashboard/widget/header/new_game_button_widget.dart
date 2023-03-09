@@ -20,9 +20,11 @@ class NewGameButtonWidget extends HookConsumerWidget {
               TextButton(
                 onPressed: () => Navigator.pop(context, 'Cancel'),
                 style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.resolveWith((states) {
-                    return Colors.grey.shade700;
-                  }),
+                  overlayColor: MaterialStateProperty.resolveWith(
+                    (states) {
+                      return Colors.grey.shade700;
+                    },
+                  ),
                 ),
                 child: Text(
                   '취소',

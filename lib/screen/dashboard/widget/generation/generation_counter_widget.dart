@@ -44,57 +44,60 @@ class GenerationCounterWidget extends HookConsumerWidget {
             child: SizedBox(
               height: 140,
               child: IconButton(
-                  icon: FaIcon(
-                    FontAwesomeIcons.circlePlus,
-                    size: MediaQuery.of(context).size.height *
-                        MediaQuery.of(context).size.width *
-                        0.00003,
-                    color: Colors.white,
-                  ),
-                  onPressed: () => showDialog(
-                      context: context,
-                      barrierDismissible: false,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          content: const Text('다음 세대로 넘어가시겠습니까?'),
-                          backgroundColor: Colors.grey.shade900,
-                          contentTextStyle:
-                              const TextStyle(color: Colors.white),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () => Navigator.pop(context, 'Cancel'),
-                              style: ButtonStyle(
-                                overlayColor:
-                                    MaterialStateProperty.resolveWith((states) {
-                                  return Colors.grey.shade700;
-                                }),
-                              ),
-                              child: Text(
-                                '취소',
-                                style: TextStyle(color: Colors.yellow.shade900),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () => {
-                                ref
-                                    .read(resourceProvider.notifier)
-                                    .add(CounterEnum.generation.id),
-                                Navigator.pop(context, 'OK'),
+                icon: FaIcon(
+                  FontAwesomeIcons.circlePlus,
+                  size: MediaQuery.of(context).size.height *
+                      MediaQuery.of(context).size.width *
+                      0.00003,
+                  color: Colors.white,
+                ),
+                onPressed: () => showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      content: const Text('다음 세대로 넘어가시겠습니까?'),
+                      backgroundColor: Colors.grey.shade900,
+                      contentTextStyle: const TextStyle(color: Colors.white),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                          style: ButtonStyle(
+                            overlayColor: MaterialStateProperty.resolveWith(
+                              (states) {
+                                return Colors.grey.shade700;
                               },
-                              style: ButtonStyle(
-                                overlayColor:
-                                    MaterialStateProperty.resolveWith((states) {
-                                  return Colors.grey.shade700;
-                                }),
-                              ),
-                              child: Text(
-                                '확인',
-                                style: TextStyle(color: Colors.yellow.shade900),
-                              ),
                             ),
-                          ],
-                        );
-                      })),
+                          ),
+                          child: Text(
+                            '취소',
+                            style: TextStyle(color: Colors.yellow.shade900),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => {
+                            ref
+                                .read(resourceProvider.notifier)
+                                .add(CounterEnum.generation.id),
+                            Navigator.pop(context, 'OK'),
+                          },
+                          style: ButtonStyle(
+                            overlayColor: MaterialStateProperty.resolveWith(
+                              (states) {
+                                return Colors.grey.shade700;
+                              },
+                            ),
+                          ),
+                          child: Text(
+                            '확인',
+                            style: TextStyle(color: Colors.yellow.shade900),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),
             ),
           ),
         ],
