@@ -4,64 +4,36 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 @immutable
 class Resource {
   const Resource({
-    required generation,
-    required terraformingRate,
-    required megaCreditStock,
-    required megaCreditYield,
-    required steelStock,
-    required steelYield,
-    required titaniumStock,
-    required titaniumYield,
-    required plantsStock,
-    required plantsYield,
-    required energyStock,
-    required energyYield,
-    required heatStock,
-    required heatYield,
-  })  : _generation = generation,
-        _terraformingRate = terraformingRate,
-        _megaCreditStock = megaCreditStock,
-        _megaCreditYield = megaCreditYield,
-        _steelStock = steelStock,
-        _steelYield = steelYield,
-        _titaniumStock = titaniumStock,
-        _titaniumYield = titaniumYield,
-        _plantsStock = plantsStock,
-        _plantsYield = plantsYield,
-        _energyStock = energyStock,
-        _energyYield = energyYield,
-        _heatStock = heatStock,
-        _heatYield = heatYield;
+    required this.generation,
+    required this.terraformingRate,
+    required this.megaCreditStock,
+    required this.megaCreditYield,
+    required this.steelStock,
+    required this.steelYield,
+    required this.titaniumStock,
+    required this.titaniumYield,
+    required this.plantsStock,
+    required this.plantsYield,
+    required this.energyStock,
+    required this.energyYield,
+    required this.heatStock,
+    required this.heatYield,
+  });
 
-  final int _generation;
-  final int _terraformingRate;
-  final int _megaCreditStock;
-  final int _megaCreditYield;
-  final int _steelStock;
-  final int _steelYield;
-  final int _titaniumStock;
-  final int _titaniumYield;
-  final int _plantsStock;
-  final int _plantsYield;
-  final int _energyStock;
-  final int _energyYield;
-  final int _heatStock;
-  final int _heatYield;
-
-  int get generation => _generation;
-  int get terraformingRate => _terraformingRate;
-  int get megaCreditStock => _megaCreditStock;
-  int get megaCreditYield => _megaCreditYield;
-  int get steelStock => _steelStock;
-  int get steelYield => _steelYield;
-  int get titaniumStock => _titaniumStock;
-  int get titaniumYield => _titaniumYield;
-  int get plantsStock => _plantsStock;
-  int get plantsYield => _plantsYield;
-  int get energyStock => _energyStock;
-  int get energyYield => _energyYield;
-  int get heatStock => _heatStock;
-  int get heatYield => _heatYield;
+  final int generation;
+  final int terraformingRate;
+  final int megaCreditStock;
+  final int megaCreditYield;
+  final int steelStock;
+  final int steelYield;
+  final int titaniumStock;
+  final int titaniumYield;
+  final int plantsStock;
+  final int plantsYield;
+  final int energyStock;
+  final int energyYield;
+  final int heatStock;
+  final int heatYield;
 
   int getValue(String resourceType) {
     switch (resourceType) {
@@ -172,7 +144,6 @@ class ResourceNotifier extends Notifier<Resource> {
   void add(String resourceType) {
     Resource newResource;
 
-    // TODO: 히스토리 저장
     switch (resourceType) {
       case 'generation':
         newResource = state.copyWith(
@@ -237,7 +208,6 @@ class ResourceNotifier extends Notifier<Resource> {
   void subtract(String resourceType) {
     Resource newResource;
 
-    // TODO: 히스토리 저장
     switch (resourceType) {
       case 'terraformingRate':
         newResource = state.copyWith(
@@ -323,7 +293,6 @@ class ResourceNotifier extends Notifier<Resource> {
   void set(String resourceType, int value) {
     Resource newResource;
 
-    // TODO: 히스토리 저장
     switch (resourceType) {
       case 'generation':
         newResource = state.copyWith(generation: value);
@@ -374,9 +343,7 @@ class ResourceNotifier extends Notifier<Resource> {
     state = newResource;
   }
 
-  void recordHistory() {
-
-  }
+  void recordHistory() {}
 }
 
 final resourceProvider = NotifierProvider<ResourceNotifier, Resource>(() {
