@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_study/screen/dashboard/widget/popup/pop_history_widget.dart';
 
 class HistoryButtonWidget extends StatelessWidget {
   const HistoryButtonWidget({super.key});
@@ -6,7 +7,11 @@ class HistoryButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () => {},
+      onPressed: () => showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return const PopHistoryWidget();
+          }),
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.resolveWith((states) {
           return Colors.grey.shade800;

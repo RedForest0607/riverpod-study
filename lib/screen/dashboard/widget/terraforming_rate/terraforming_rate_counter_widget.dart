@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/enum/counter_enum.dart';
+import 'package:riverpod_study/notifiers/history.dart';
 import 'package:riverpod_study/notifiers/resource.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class TrCounterWidget extends HookConsumerWidget {
-  const TrCounterWidget({super.key});
+class TerraformingRateCounterWidget extends HookConsumerWidget {
+  const TerraformingRateCounterWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -40,6 +41,9 @@ class TrCounterWidget extends HookConsumerWidget {
                     ref
                         .read(resourceProvider.notifier)
                         .subtract('terraformingRate'),
+                    ref
+                        .read(historyProvider.notifier)
+                        .record('terraformingRate', -1),
                   },
                 )),
           ),
@@ -69,6 +73,9 @@ class TrCounterWidget extends HookConsumerWidget {
                   ),
                   onPressed: () => {
                     ref.read(resourceProvider.notifier).add('terraformingRate'),
+                    ref
+                        .read(historyProvider.notifier)
+                        .record('terraformingRate', 1),
                   },
                 )),
           ),

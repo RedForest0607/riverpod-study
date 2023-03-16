@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:riverpod_study/notifiers/history.dart';
 import 'package:riverpod_study/notifiers/resource.dart';
 
 class YieldCounterWidget extends HookConsumerWidget {
@@ -31,6 +32,7 @@ class YieldCounterWidget extends HookConsumerWidget {
                 ),
                 onPressed: () => {
                   ref.read(resourceProvider.notifier).subtract('${id}Yield'),
+                  ref.read(historyProvider.notifier).record('${id}Yield', -1),
                 },
               ),
             ),
@@ -61,6 +63,7 @@ class YieldCounterWidget extends HookConsumerWidget {
                 ),
                 onPressed: () => {
                   ref.read(resourceProvider.notifier).add('${id}Yield'),
+                  ref.read(historyProvider.notifier).record('${id}Yield', 1),
                 },
               ),
             ),

@@ -11,7 +11,6 @@ class GenerationCounterWidget extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Resource resource = ref.watch(resourceProvider);
-    List<Event> history = ref.watch(historyProvider).history;
 
     return Container(
       height: null,
@@ -84,9 +83,6 @@ class GenerationCounterWidget extends HookConsumerWidget {
                             ref
                                 .read(historyProvider.notifier)
                                 .record(CounterEnum.generation.id, 1),
-                            debugPrint(history[history.length - 1]
-                                .generation
-                                .toString()),
                             Navigator.pop(context, 'OK'),
                           },
                           style: ButtonStyle(

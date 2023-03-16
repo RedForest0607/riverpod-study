@@ -27,7 +27,7 @@ class TrBlockWidget extends StatelessWidget {
             widgetIcon: widgetIcon,
           ),
           const Expanded(
-            child: TrCounterWidget(),
+            child: TerraformingRateCounterWidget(),
           ),
         ],
       ),
