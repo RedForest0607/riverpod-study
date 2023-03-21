@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/notifiers/history.dart';
 
+import '../../../../enum/counter_enum.dart';
+
 class PopHistoryWidget extends HookConsumerWidget {
   const PopHistoryWidget({super.key});
 
@@ -16,9 +18,10 @@ class PopHistoryWidget extends HookConsumerWidget {
             padding: EdgeInsets.fromLTRB(
                 MediaQuery.of(context).size.width / 50,
                 MediaQuery.of(context).size.height / 50,
-                0,
+                MediaQuery.of(context).size.height / 50,
                 MediaQuery.of(context).size.height / 50),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.timeline,
                     color: Colors.white,
@@ -66,6 +69,7 @@ class PopHistoryWidget extends HookConsumerWidget {
               children: <Widget>[
                 for (int i = history.length - 1; i > 0; i--)
                   Container(
+                    width: double.infinity,
                     margin: EdgeInsets.fromLTRB(
                         MediaQuery.of(context).size.width / 100,
                         MediaQuery.of(context).size.height / 80,
@@ -92,12 +96,24 @@ class PopHistoryWidget extends HookConsumerWidget {
                               0.000035,
                           color: Colors.white,
                         ),
-                        children: <TextSpan>[
-                          TextSpan(text: '${history[i].resourceType}'),
+                        children: [
+                          WidgetSpan(
+                              child: Icon(
+                            CounterEnum.getIcon(history[i].resourceType),
+                            color:
+                                CounterEnum.getColor(history[i].resourceType),
+                            size: MediaQuery.of(context).size.height *
+                                MediaQuery.of(context).size.width *
+                                0.00004,
+                          )),
                           TextSpan(
-                              text: 'World',
-                              style:
-                                  new TextStyle(fontWeight: FontWeight.bold)),
+                              text:
+                                  CounterEnum.getType(history[i].resourceType),
+                              style: const TextStyle(color: Colors.white)),
+                          TextSpan(
+                              text:
+                                  '${history[i].eventValue > 0 ? '+' : ''}${history[i].eventValue}',
+                              style: const TextStyle(color: Colors.white)),
                         ],
                       ),
                     ),

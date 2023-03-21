@@ -1,3 +1,5 @@
+// ignore_for_file: curly_braces_in_flow_control_structures
+
 import 'package:flutter/material.dart';
 
 enum CounterEnum {
@@ -53,4 +55,42 @@ enum CounterEnum {
     required this.icon,
     required this.mainColor,
   });
+
+  static IconData? getIcon(String resourceType) {
+    if (resourceType == 'generation') return CounterEnum.generation.icon;
+    if (resourceType == 'terraformingRate')
+      return CounterEnum.terraformingRate.icon;
+    if (resourceType.startsWith('megaCredit'))
+      return CounterEnum.megaCredit.icon;
+    if (resourceType.startsWith('steel')) return CounterEnum.steel.icon;
+    if (resourceType.startsWith('titanium')) return CounterEnum.titanium.icon;
+    if (resourceType.startsWith('plants')) return CounterEnum.plants.icon;
+    if (resourceType.startsWith('energy')) return CounterEnum.energy.icon;
+    if (resourceType.startsWith('heat')) return CounterEnum.heat.icon;
+    return null;
+  }
+
+  static Color? getColor(String resourceType) {
+    if (resourceType == 'generation') return CounterEnum.generation.mainColor;
+    if (resourceType == 'terraformingRate')
+      return CounterEnum.terraformingRate.mainColor;
+    if (resourceType.startsWith('megaCredit'))
+      return CounterEnum.megaCredit.mainColor;
+    if (resourceType.startsWith('steel')) return CounterEnum.steel.mainColor;
+    if (resourceType.startsWith('titanium'))
+      return CounterEnum.titanium.mainColor;
+    if (resourceType.startsWith('plants')) return CounterEnum.plants.mainColor;
+    if (resourceType.startsWith('energy')) return CounterEnum.energy.mainColor;
+    if (resourceType.startsWith('heat')) return CounterEnum.heat.mainColor;
+    return null;
+  }
+
+  static String? getType(String resourceType) {
+    if (resourceType == 'generation') return CounterEnum.generation.title;
+    if (resourceType == 'terraformingRate')
+      return CounterEnum.terraformingRate.title;
+    if (resourceType.endsWith('Stock')) return '보유량';
+    if (resourceType.endsWith('Yield')) return '생산량';
+    return null;
+  }
 }

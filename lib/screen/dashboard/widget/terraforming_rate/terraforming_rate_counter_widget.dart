@@ -41,9 +41,12 @@ class TerraformingRateCounterWidget extends HookConsumerWidget {
                     ref
                         .read(resourceProvider.notifier)
                         .subtract('terraformingRate'),
-                    ref
-                        .read(historyProvider.notifier)
-                        .record('terraformingRate', -1),
+                    if (resource.getValue(CounterEnum.terraformingRate.id) > 0)
+                      {
+                        ref
+                            .read(historyProvider.notifier)
+                            .record('terraformingRate', -1)
+                      },
                   },
                 )),
           ),

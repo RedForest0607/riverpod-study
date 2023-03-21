@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:riverpod_study/enum/counter_enum.dart';
 import 'package:riverpod_study/notifiers/history.dart';
 import 'package:riverpod_study/notifiers/resource.dart';
 
@@ -32,7 +33,15 @@ class YieldCounterWidget extends HookConsumerWidget {
                 ),
                 onPressed: () => {
                   ref.read(resourceProvider.notifier).subtract('${id}Yield'),
-                  ref.read(historyProvider.notifier).record('${id}Yield', -1),
+                  if ((id != CounterEnum.megaCredit.id &&
+                          resource.getValue('${id}Yield') > 0) ||
+                      (id == CounterEnum.megaCredit.id &&
+                          resource.getValue('${id}Yield') > -5))
+                    {
+                      ref
+                          .read(historyProvider.notifier)
+                          .record('${id}Yield', -1)
+                    },
                 },
               ),
             ),
