@@ -85,12 +85,12 @@ enum CounterEnum {
     return null;
   }
 
-  static String? getType(String resourceType) {
+  static String getType(String resourceType) {
     if (resourceType == 'generation') return CounterEnum.generation.title;
     if (resourceType == 'terraformingRate')
       return CounterEnum.terraformingRate.title;
     if (resourceType.endsWith('Stock')) return '보유량';
     if (resourceType.endsWith('Yield')) return '생산량';
-    return null;
+    return '';
   }
 }

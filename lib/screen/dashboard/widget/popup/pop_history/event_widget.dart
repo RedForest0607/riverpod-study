@@ -33,32 +33,40 @@ class EventWidget extends HookConsumerWidget {
           color: Colors.white,
         ),
       ),
-      child: RichText(
-        text: TextSpan(
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.height *
+      child: Row(
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.height *
                 MediaQuery.of(context).size.width *
-                0.000035,
-            color: Colors.white,
+                0.0002,
+            child: Row(
+              children: [
+                Icon(
+                  CounterEnum.getIcon(history[eventNo].resourceType),
+                  color: CounterEnum.getColor(history[eventNo].resourceType),
+                  size: MediaQuery.of(context).size.height *
+                      MediaQuery.of(context).size.width *
+                      0.00004,
+                ),
+                Text(CounterEnum.getType(history[eventNo].resourceType),
+                    style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height *
+                            MediaQuery.of(context).size.width *
+                            0.000035,
+                        color: Colors.white)),
+              ],
+            ),
           ),
-          children: [
-            WidgetSpan(
-                child: Icon(
-              CounterEnum.getIcon(history[eventNo].resourceType),
-              color: CounterEnum.getColor(history[eventNo].resourceType),
-              size: MediaQuery.of(context).size.height *
-                  MediaQuery.of(context).size.width *
-                  0.00004,
-            )),
-            TextSpan(
-                text: CounterEnum.getType(history[eventNo].resourceType),
-                style: const TextStyle(color: Colors.white)),
-            TextSpan(
-                text:
-                    '${history[eventNo].eventValue > 0 ? '+' : ''}${history[eventNo].eventValue}',
-                style: const TextStyle(color: Colors.white)),
-          ],
-        ),
+          SizedBox(
+            child: Text(
+                '${history[eventNo].eventValue > 0 ? '+' : ''}${history[eventNo].eventValue}',
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height *
+                        MediaQuery.of(context).size.width *
+                        0.000035,
+                    color: Colors.white)),
+          ),
+        ],
       ),
     );
   }
