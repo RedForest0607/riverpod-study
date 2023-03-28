@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_study/screen/dashboard/widget/popup/pop_common_widget.dart';
 import 'package:riverpod_study/screen/dashboard/widget/popup/pop_history/pop_history_widget.dart';
 
 class HistoryButtonWidget extends StatelessWidget {
@@ -10,7 +11,11 @@ class HistoryButtonWidget extends StatelessWidget {
       onPressed: () => showDialog(
           context: context,
           builder: (BuildContext context) {
-            return const PopHistoryWidget();
+            return const PopCommonWidget(
+              iconData: Icons.timeline,
+              title: '히스토리',
+              content: PopHistoryWidget(),
+            );
           }),
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.resolveWith((states) {

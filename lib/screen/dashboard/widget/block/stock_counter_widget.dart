@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/notifiers/resource.dart';
+import 'package:riverpod_study/screen/dashboard/widget/popup/pop_common_widget.dart';
+import 'package:riverpod_study/screen/dashboard/widget/popup/pop_numpad/pop_numpad_widget.dart';
 
 class StockCounterWidget extends HookConsumerWidget {
   const StockCounterWidget({super.key, required this.id, required this.title});
@@ -17,15 +19,30 @@ class StockCounterWidget extends HookConsumerWidget {
       child: Row(
         children: [
           Expanded(
-            child: Text(
-              resource.getValue('${id}Stock').toString(),
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: MediaQuery.of(context).size.height *
-                    MediaQuery.of(context).size.width *
-                    0.00006,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
               ),
-              textAlign: TextAlign.center,
+              onPressed: () => showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return PopCommonWidget(
+                      iconData: Icons.calculate_rounded,
+                      title: '보유량',
+                      content: PopNumpadWidget(id: id),
+                    );
+                  }),
+              child: Text(
+                resource.getValue('${id}Stock').toString(),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: MediaQuery.of(context).size.height *
+                      MediaQuery.of(context).size.width *
+                      0.00006,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ],
