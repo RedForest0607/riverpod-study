@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:riverpod_study/enum/counter_enum.dart';
 import 'package:riverpod_study/notifiers/history.dart';
 import 'package:riverpod_study/notifiers/resource.dart';
+import 'package:riverpod_study/screen/dashboard/widget/popup/pop_numpad/numpad_widget.dart';
 
 class YieldCounterWidget extends HookConsumerWidget {
   const YieldCounterWidget({super.key, required this.id, required this.title});
@@ -47,15 +48,27 @@ class YieldCounterWidget extends HookConsumerWidget {
             ),
           ),
           Expanded(
-            child: Text(
-              resource.getValue('${id}Yield').toString(),
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: MediaQuery.of(context).size.height *
-                    MediaQuery.of(context).size.width *
-                    0.00004,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
               ),
-              textAlign: TextAlign.center,
+              onPressed: () => showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return (NumpadWidget(id: id));
+                }
+              ),
+              child: Text(
+                resource.getValue('${id}Yield').toString(),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: MediaQuery.of(context).size.height *
+                      MediaQuery.of(context).size.width *
+                      0.00004,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
           Expanded(

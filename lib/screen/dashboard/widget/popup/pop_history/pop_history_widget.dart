@@ -16,7 +16,7 @@ class PopHistoryWidget extends HookConsumerWidget {
         children: [
           Padding(
             padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.width / 50,
+                MediaQuery.of(context).size.width / 25,
                 MediaQuery.of(context).size.height / 50,
                 MediaQuery.of(context).size.height / 50,
                 MediaQuery.of(context).size.height / 50),
