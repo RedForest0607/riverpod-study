@@ -1,4 +1,4 @@
-# riverpod_study
+# riverpod-study
  repo for riverpod study
 
 ## installation
