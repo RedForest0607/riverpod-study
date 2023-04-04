@@ -2,9 +2,9 @@
  repo for riverpod study
 
 ## installation
- ```yml
- pubspec.yaml
- 
+```yml
+pubspec.yaml
+
 name: my_app_name
 environment:
   sdk: ">=2.17.0 <3.0.0"
