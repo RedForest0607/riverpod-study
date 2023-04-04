@@ -58,7 +58,7 @@ class PopCommonWidget extends StatelessWidget {
         side: const BorderSide(color: Colors.white),
       ),
       content: SizedBox(
-        height: MediaQuery.of(context).size.height / 1.6,
+        height: MediaQuery.of(context).size.height / 1.3,
         width: MediaQuery.of(context).size.width / 1.4,
         child: content,
       ),

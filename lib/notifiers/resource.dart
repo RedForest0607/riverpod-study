@@ -342,8 +342,6 @@ class ResourceNotifier extends Notifier<Resource> {
     }
     state = newResource;
   }
-
-  void recordHistory() {}
 }
 
 final resourceProvider = NotifierProvider<ResourceNotifier, Resource>(() {
