@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/screen/dashboard/widget/block_header_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/generation/generation_counter_widget.dart';
 
 class GenerationBlockWidget extends StatelessWidget {
   const GenerationBlockWidget(
-      {super.key, this.height, this.color, this.title, this.widgetIcon});
+      {super.key,
+      this.height,
+      this.color,
+      this.title,
+      this.widgetIcon,
+      required this.child});
 
   final double? height;
   final Color? color;
   final String? title;
   final IconData? widgetIcon;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +31,8 @@ class GenerationBlockWidget extends StatelessWidget {
             title: title,
             widgetIcon: widgetIcon,
           ),
-          const Expanded(
-            child: GenerationCounterWidget(),
+          Expanded(
+            child: child,
           ),
         ],
       ),

@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/screen/dashboard/widget/block_header_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/block/stock_counter_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/block/yield_counter_widget.dart';
 
 class ResourceBlockWidget extends StatelessWidget {
   const ResourceBlockWidget({
     super.key,
     required this.height,
     required this.color,
-    required this.id,
     required this.title,
     required this.widgetIcon,
+    required this.children,
   });
 
   final double height;
   final Color color;
-  final String id;
   final String title;
   final IconData widgetIcon;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +45,7 @@ class ResourceBlockWidget extends StatelessWidget {
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: StockCounterWidget(id: id, title: title),
-                  ),
-                  Expanded(
-                    child: YieldCounterWidget(id: id, title: title),
-                  ),
-                ],
+                children: children,
               ),
             ),
           ),

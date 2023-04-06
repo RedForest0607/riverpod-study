@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/screen/dashboard/widget/block_header_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/terraforming_rate/terraforming_rate_counter_widget.dart';
 
 class TrBlockWidget extends StatelessWidget {
   const TrBlockWidget(
-      {super.key, this.height, this.color, this.title, this.widgetIcon});
+      {super.key,
+      this.height,
+      this.color,
+      this.title,
+      this.widgetIcon,
+      required this.child});
 
   final double? height;
   final Color? color;
   final String? title;
   final IconData? widgetIcon;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +31,8 @@ class TrBlockWidget extends StatelessWidget {
             title: title,
             widgetIcon: widgetIcon,
           ),
-          const Expanded(
-            child: TerraformingRateCounterWidget(),
+          Expanded(
+            child: child,
           ),
         ],
       ),

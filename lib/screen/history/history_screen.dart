@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/enum/counter_enum.dart';
-import 'package:riverpod_study/screen/dashboard/widget/block/stock_counter_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/block/yield_counter_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/generation/generation_counter_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/header/header_widget.dart';
-import 'package:riverpod_study/screen/dashboard/widget/terraforming_rate/terraforming_rate_counter_widget.dart';
-
+import 'package:riverpod_study/screen/history/widget/header/header_widget.dart';
 import 'package:riverpod_study/widget/resource_block_widget.dart';
 import 'package:riverpod_study/widget/generation_block_widget.dart';
 import 'package:riverpod_study/widget/terraforming_rate_block_widget.dart';
 
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
+class HistoryScreen extends StatelessWidget {
+  const HistoryScreen({super.key});
 
-  static String routeName = "/dashboard";
+  static String routeName = "/history";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
       appBar: PreferredSize(
-        preferredSize:
-            Size.fromHeight(MediaQuery.of(context).size.height * 0.05),
+        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height *
+            0.05), // here the desired height
         child: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -45,7 +40,7 @@ class DashboardScreen extends StatelessWidget {
                         color: CounterEnum.terraformingRate.mainColor,
                         title: CounterEnum.terraformingRate.title,
                         widgetIcon: CounterEnum.terraformingRate.icon,
-                        child: const TerraformingRateCounterWidget(),
+                        child: Container(),
                       ),
                     ),
                     Expanded(
@@ -59,7 +54,7 @@ class DashboardScreen extends StatelessWidget {
                         color: CounterEnum.generation.mainColor,
                         title: CounterEnum.generation.title,
                         widgetIcon: CounterEnum.generation.icon,
-                        child: const GenerationCounterWidget(),
+                        child: Container(),
                       ),
                     ),
                   ],
@@ -76,38 +71,17 @@ class DashboardScreen extends StatelessWidget {
                         color: CounterEnum.megaCredit.mainColor,
                         title: CounterEnum.megaCredit.title,
                         widgetIcon: CounterEnum.megaCredit.icon,
-                        children: [
-                          Expanded(
-                            child: StockCounterWidget(
-                                id: CounterEnum.megaCredit.id,
-                                title: CounterEnum.megaCredit.title),
-                          ),
-                          Expanded(
-                            child: YieldCounterWidget(
-                                id: CounterEnum.megaCredit.id,
-                                title: CounterEnum.megaCredit.title),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                     Expanded(
                       child: ResourceBlockWidget(
-                          height: MediaQuery.of(context).size.height * 0.3,
-                          color: CounterEnum.steel.mainColor,
-                          title: CounterEnum.steel.title,
-                          widgetIcon: CounterEnum.steel.icon,
-                          children: [
-                            Expanded(
-                              child: StockCounterWidget(
-                                  id: CounterEnum.steel.id,
-                                  title: CounterEnum.steel.title),
-                            ),
-                            Expanded(
-                              child: YieldCounterWidget(
-                                  id: CounterEnum.steel.id,
-                                  title: CounterEnum.steel.title),
-                            ),
-                          ]),
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        color: CounterEnum.steel.mainColor,
+                        title: CounterEnum.steel.title,
+                        widgetIcon: CounterEnum.steel.icon,
+                        children: [],
+                      ),
                     ),
                     Expanded(
                       child: ResourceBlockWidget(
@@ -115,18 +89,7 @@ class DashboardScreen extends StatelessWidget {
                         color: CounterEnum.titanium.mainColor,
                         title: CounterEnum.titanium.title,
                         widgetIcon: CounterEnum.titanium.icon,
-                        children: [
-                          Expanded(
-                            child: StockCounterWidget(
-                                id: CounterEnum.titanium.id,
-                                title: CounterEnum.titanium.title),
-                          ),
-                          Expanded(
-                            child: YieldCounterWidget(
-                                id: CounterEnum.titanium.id,
-                                title: CounterEnum.titanium.title),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ],
@@ -143,18 +106,7 @@ class DashboardScreen extends StatelessWidget {
                         color: CounterEnum.plants.mainColor,
                         title: CounterEnum.plants.title,
                         widgetIcon: CounterEnum.plants.icon,
-                        children: [
-                          Expanded(
-                            child: StockCounterWidget(
-                                id: CounterEnum.plants.id,
-                                title: CounterEnum.plants.title),
-                          ),
-                          Expanded(
-                            child: YieldCounterWidget(
-                                id: CounterEnum.plants.id,
-                                title: CounterEnum.plants.title),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                     Expanded(
@@ -163,18 +115,7 @@ class DashboardScreen extends StatelessWidget {
                         color: CounterEnum.energy.mainColor,
                         title: CounterEnum.energy.title,
                         widgetIcon: CounterEnum.energy.icon,
-                        children: [
-                          Expanded(
-                            child: StockCounterWidget(
-                                id: CounterEnum.energy.id,
-                                title: CounterEnum.energy.title),
-                          ),
-                          Expanded(
-                            child: YieldCounterWidget(
-                                id: CounterEnum.energy.id,
-                                title: CounterEnum.energy.title),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                     Expanded(
@@ -183,18 +124,7 @@ class DashboardScreen extends StatelessWidget {
                         color: CounterEnum.heat.mainColor,
                         title: CounterEnum.heat.title,
                         widgetIcon: CounterEnum.heat.icon,
-                        children: [
-                          Expanded(
-                            child: StockCounterWidget(
-                                id: CounterEnum.heat.id,
-                                title: CounterEnum.heat.title),
-                          ),
-                          Expanded(
-                            child: YieldCounterWidget(
-                                id: CounterEnum.heat.id,
-                                title: CounterEnum.heat.title),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ],

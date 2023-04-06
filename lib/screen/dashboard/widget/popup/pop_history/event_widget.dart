@@ -3,6 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/notifiers/history.dart';
 
 import 'package:riverpod_study/enum/counter_enum.dart';
+import 'package:riverpod_study/routes.dart';
+import 'package:riverpod_study/screen/history/history_screen.dart';
 
 class EventWidget extends HookConsumerWidget {
   const EventWidget({super.key, required this.eventNo});
@@ -33,40 +35,49 @@ class EventWidget extends HookConsumerWidget {
           color: Colors.white,
         ),
       ),
-      child: Row(
-        children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.height *
-                MediaQuery.of(context).size.width *
-                0.0002,
-            child: Row(
-              children: [
-                Icon(
-                  CounterEnum.getIcon(history[eventNo].resourceType),
-                  color: CounterEnum.getColor(history[eventNo].resourceType),
-                  size: MediaQuery.of(context).size.height *
-                      MediaQuery.of(context).size.width *
-                      0.00004,
-                ),
-                Text(CounterEnum.getType(history[eventNo].resourceType),
-                    style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height *
-                            MediaQuery.of(context).size.width *
-                            0.000035,
-                        color: Colors.white)),
-              ],
-            ),
-          ),
-          SizedBox(
-            child: Text(
-                '${history[eventNo].eventValue > 0 ? '+' : ''}${history[eventNo].eventValue}',
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height *
+      child: ElevatedButton(
+        onPressed: () => {
+          Navigator.pushNamed(context, HistoryScreen.routeName),
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+        ),
+        child: Row(
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.height *
+                  MediaQuery.of(context).size.width *
+                  0.0002,
+              child: Row(
+                children: [
+                  Icon(
+                    CounterEnum.getIcon(history[eventNo].resourceType),
+                    color: CounterEnum.getColor(history[eventNo].resourceType),
+                    size: MediaQuery.of(context).size.height *
                         MediaQuery.of(context).size.width *
-                        0.000035,
-                    color: Colors.white)),
-          ),
-        ],
+                        0.00004,
+                  ),
+                  Text(CounterEnum.getType(history[eventNo].resourceType),
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height *
+                              MediaQuery.of(context).size.width *
+                              0.000035,
+                          color: Colors.white)),
+                ],
+              ),
+            ),
+            SizedBox(
+              child: Text(
+                  '${history[eventNo].eventValue > 0 ? '+' : ''}${history[eventNo].eventValue}',
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height *
+                          MediaQuery.of(context).size.width *
+                          0.000035,
+                      color: Colors.white)),
+            ),
+          ],
+        ),
       ),
     );
   }
