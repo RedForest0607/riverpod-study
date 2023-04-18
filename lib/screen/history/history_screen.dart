@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/enum/counter_enum.dart';
+import 'package:riverpod_study/screen/history/widget/counter/terraforming_rate_history_counter_widget.dart';
 import 'package:riverpod_study/screen/history/widget/header/header_widget.dart';
 import 'package:riverpod_study/widget/resource_block_widget.dart';
 import 'package:riverpod_study/widget/generation_block_widget.dart';
@@ -40,7 +41,7 @@ class HistoryScreen extends StatelessWidget {
                         color: CounterEnum.terraformingRate.mainColor,
                         title: CounterEnum.terraformingRate.title,
                         widgetIcon: CounterEnum.terraformingRate.icon,
-                        child: Container(),
+                        child: const TerraformingRateHistoryCounterWidget(),
                       ),
                     ),
                     Expanded(

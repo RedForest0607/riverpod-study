@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_study/enum/counter_enum.dart';
+import 'package:riverpod_study/notifiers/history.dart';
+import 'package:riverpod_study/notifiers/resource.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+class TerraformingRateHistoryCounterWidget extends HookConsumerWidget {
+  const TerraformingRateHistoryCounterWidget({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    Resource resource = ref.watch(resourceProvider);
+
+    return Container(
+      height: null,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.white,
+        ),
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(10),
+          bottomRight: Radius.circular(10),
+        ),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Text(
+              resource.getValue(CounterEnum.terraformingRate.id).toString(),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: MediaQuery.of(context).size.height *
+                    MediaQuery.of(context).size.width *
+                    0.00004,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            child: SizedBox(
+              height: 140,
+              child: Icon(
+                Icons.arrow_forward_rounded,
+                size: MediaQuery.of(context).size.height *
+                    MediaQuery.of(context).size.width *
+                    0.00003,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Text(
+              resource.getValue(CounterEnum.terraformingRate.id).toString(),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: MediaQuery.of(context).size.height *
+                    MediaQuery.of(context).size.width *
+                    0.00004,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
