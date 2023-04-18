@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/enum/counter_enum.dart';
+import 'package:riverpod_study/screen/history/widget/counter/generation_history_counter_widget.dart';
+import 'package:riverpod_study/screen/history/widget/counter/history_counter_widget.dart';
 import 'package:riverpod_study/screen/history/widget/counter/terraforming_rate_history_counter_widget.dart';
 import 'package:riverpod_study/screen/history/widget/header/header_widget.dart';
 import 'package:riverpod_study/widget/resource_block_widget.dart';
@@ -13,6 +15,7 @@ class HistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final int eventNo = ModalRoute.of(context)?.settings.arguments as int;
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
       appBar: PreferredSize(
@@ -55,7 +58,7 @@ class HistoryScreen extends StatelessWidget {
                         color: CounterEnum.generation.mainColor,
                         title: CounterEnum.generation.title,
                         widgetIcon: CounterEnum.generation.icon,
-                        child: Container(),
+                        child: GenerationHistoryCounterWidget(eventNo: eventNo,),
                       ),
                     ),
                   ],
@@ -72,7 +75,11 @@ class HistoryScreen extends StatelessWidget {
                         color: CounterEnum.megaCredit.mainColor,
                         title: CounterEnum.megaCredit.title,
                         widgetIcon: CounterEnum.megaCredit.icon,
-                        children: [],
+                        children: [
+                          HistoryCounterWidget(
+                              resouceName: CounterEnum.megaCredit.id,
+                              eventNo: eventNo,)
+                        ],
                       ),
                     ),
                     Expanded(
@@ -81,7 +88,11 @@ class HistoryScreen extends StatelessWidget {
                         color: CounterEnum.steel.mainColor,
                         title: CounterEnum.steel.title,
                         widgetIcon: CounterEnum.steel.icon,
-                        children: [],
+                        children: [
+                          HistoryCounterWidget(
+                              resouceName: CounterEnum.steel.id,
+                              eventNo: eventNo,)
+                        ],
                       ),
                     ),
                     Expanded(
@@ -90,7 +101,11 @@ class HistoryScreen extends StatelessWidget {
                         color: CounterEnum.titanium.mainColor,
                         title: CounterEnum.titanium.title,
                         widgetIcon: CounterEnum.titanium.icon,
-                        children: [],
+                        children: [
+                          HistoryCounterWidget(
+                              resouceName: CounterEnum.titanium.id,
+                              eventNo: eventNo,)
+                        ],
                       ),
                     ),
                   ],
@@ -107,7 +122,11 @@ class HistoryScreen extends StatelessWidget {
                         color: CounterEnum.plants.mainColor,
                         title: CounterEnum.plants.title,
                         widgetIcon: CounterEnum.plants.icon,
-                        children: [],
+                        children: [
+                          HistoryCounterWidget(
+                              resouceName: CounterEnum.plants.id,
+                              eventNo: eventNo,)
+                        ],
                       ),
                     ),
                     Expanded(
@@ -116,7 +135,11 @@ class HistoryScreen extends StatelessWidget {
                         color: CounterEnum.energy.mainColor,
                         title: CounterEnum.energy.title,
                         widgetIcon: CounterEnum.energy.icon,
-                        children: [],
+                        children: [
+                          HistoryCounterWidget(
+                              resouceName: CounterEnum.energy.id,
+                              eventNo: eventNo,)
+                        ],
                       ),
                     ),
                     Expanded(
@@ -125,7 +148,10 @@ class HistoryScreen extends StatelessWidget {
                         color: CounterEnum.heat.mainColor,
                         title: CounterEnum.heat.title,
                         widgetIcon: CounterEnum.heat.icon,
-                        children: [],
+                        children: [
+                          HistoryCounterWidget(resouceName: CounterEnum.heat.id,
+                          eventNo: eventNo,)
+                        ],
                       ),
                     ),
                   ],

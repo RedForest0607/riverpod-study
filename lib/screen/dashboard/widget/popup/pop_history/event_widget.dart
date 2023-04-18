@@ -37,7 +37,7 @@ class EventWidget extends HookConsumerWidget {
       ),
       child: ElevatedButton(
         onPressed: () => {
-          Navigator.pushNamed(context, HistoryScreen.routeName),
+          Navigator.pushNamed(context, HistoryScreen.routeName, arguments: eventNo),
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,

@@ -86,6 +86,34 @@ class Event {
         break;
     }
   }
+
+Map<String, int> _toMap() {
+  return {
+    'eventValue' : eventValue,
+    'generation' : generation,
+    'terraformingRate' : terraformingRate,
+    'megaCreditStock' : megaCreditStock,
+    'megaCreditYield' : megaCreditYield,
+    'steelStock' : steelStock,
+    'steelYield' : steelYield,
+    'titaniumStock' : titaniumStock,
+    'titaniumYield' : titaniumYield,
+    'plantsStock' : plantsStock,
+    'plantsYield' : plantsYield,
+    'energyStock' : energyStock,
+    'energyYield' : energyYield,
+    'heatStock' : heatStock,
+    'heatYield' : heatYield
+  };
+}
+
+  int getValue(String resourceType) {
+    var _map = _toMap();
+    if (_map.containsKey(resourceType)) {
+      return _map[resourceType]!;
+    }
+    throw ArgumentError('property not found');
+  }
 }
 
 class HistoryNotifier extends ChangeNotifier {
