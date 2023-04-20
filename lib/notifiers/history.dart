@@ -121,7 +121,7 @@ class HistoryNotifier extends ChangeNotifier {
     Event(
       resourceType: 'coorperation',
       eventValue: 1,
-      generation: 0,
+      generation: 1,
       terraformingRate: 0,
       megaCreditStock: 0,
       megaCreditYield: 0,

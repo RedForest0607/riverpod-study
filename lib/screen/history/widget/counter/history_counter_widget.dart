@@ -24,7 +24,7 @@ class HistoryCounterWidget extends HookConsumerWidget {
           Expanded(
             flex: 1,
             child: Text(
-              resource.getValue("${resouceName}Stock").toString(),
+              resource.getValue("${resouceName}Yield").toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *
@@ -49,7 +49,7 @@ class HistoryCounterWidget extends HookConsumerWidget {
           Expanded(
             flex: 1,
             child: Text(
-              history[eventNo].getValue("${resouceName}Stock").toString(),
+              history[eventNo].getValue("${resouceName}Yield").toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *
