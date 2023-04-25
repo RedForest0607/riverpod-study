@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_study/notifiers/event_cursor.dart';
 import 'package:riverpod_study/notifiers/history.dart';
 
 import 'package:riverpod_study/enum/counter_enum.dart';
-import 'package:riverpod_study/routes.dart';
 import 'package:riverpod_study/screen/history/history_screen.dart';
 
 class EventWidget extends HookConsumerWidget {
@@ -37,7 +37,8 @@ class EventWidget extends HookConsumerWidget {
       ),
       child: ElevatedButton(
         onPressed: () => {
-          Navigator.pushNamed(context, HistoryScreen.routeName, arguments: eventNo),
+          ref.read(eventCursorProvider.notifier).setValue(eventNo),
+          Navigator.pushNamed(context, HistoryScreen.routeName),
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,

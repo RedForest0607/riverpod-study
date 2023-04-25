@@ -15,6 +15,6 @@ class EventCursorNotifier extends Notifier<int> {
   }
 }
 
-final deltaProvider = NotifierProvider<EventCursorNotifier, int>(() {
+final eventCursorProvider = NotifierProvider<EventCursorNotifier, int>(() {
   return EventCursorNotifier();
 });

@@ -40,7 +40,7 @@ class DashboardScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: TrBlockWidget(
+                      child: TerraformingRateBlockWidget(
                         height: MediaQuery.of(context).size.height * 0.23,
                         color: CounterEnum.terraformingRate.mainColor,
                         title: CounterEnum.terraformingRate.title,

@@ -342,6 +342,10 @@ class ResourceNotifier extends Notifier<Resource> {
     }
     state = newResource;
   }
+
+  void replace(Resource resource) {
+    state = resource;
+  }
 }
 
 final resourceProvider = NotifierProvider<ResourceNotifier, Resource>(() {

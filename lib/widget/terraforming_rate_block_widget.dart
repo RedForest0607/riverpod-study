@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/screen/dashboard/widget/block_header_widget.dart';
 
-class TrBlockWidget extends StatelessWidget {
-  const TrBlockWidget(
+class TerraformingRateBlockWidget extends StatelessWidget {
+  const TerraformingRateBlockWidget(
       {super.key,
       this.height,
       this.color,
