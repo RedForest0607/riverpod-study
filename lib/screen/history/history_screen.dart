@@ -19,8 +19,8 @@ class HistoryScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height *
-            0.05), // here the desired height
+        preferredSize:
+            Size.fromHeight(MediaQuery.of(context).size.height * 0.05),
         child: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,

@@ -3,7 +3,8 @@
     "expansionId": "original",
     "corprationList": [
       {
-        "corprationName": "초보자용 기업",
+        "corporationId": "beginnerCorporation",
+        "corporationName": "초보자용 기업",
         "terraformingRate": 0,
         "megaCreditStock": 42,
         "megaCreditYield": 0,
@@ -16,7 +17,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "크레디코르",
+        "corporationId": "credicor",
+        "corporationName": "크레디코르",
         "terraformingRate": 0,
         "megaCreditStock": 57,
         "megaCreditYield": 0,
@@ -29,7 +31,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "에코라인",
+        "corporationId": "ecoline",
+        "corporationName": "에코라인",
         "terraformingRate": 0,
         "megaCreditStock": 36,
         "megaCreditYield": 0,
@@ -42,7 +45,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "헬리온",
+        "corporationId": "helion",
+        "corporationName": "헬리온",
         "terraformingRate": 0,
         "megaCreditStock": 42,
         "megaCreditYield": 0,
@@ -55,7 +59,8 @@
         "energyYield": 0,
         "heatYield": 3
       }, {
-        "corprationName": "인터플래너터리 시네마틱스",
+        "corporationId": "interplanetaryCinematics",
+        "corporationName": "인터플래너터리 시네마틱스",
         "terraformingRate": 0,
         "megaCreditStock": 30,
         "megaCreditYield": 0,
@@ -68,7 +73,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "인벤트릭스",
+        "corporationId": "inventrix",
+        "corporationName": "인벤트릭스",
         "terraformingRate": 0,
         "megaCreditStock": 45,
         "megaCreditYield": 0,
@@ -81,7 +87,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "광업협동조합",
+        "corporationId": "miningGuild",
+        "corporationName": "광업협동조합",
         "terraformingRate": 0,
         "megaCreditStock": 30,
         "megaCreditYield": 0,
@@ -94,7 +101,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "포볼로그",
+        "corporationId": "Phobolog",
+        "corporationName": "포볼로그",
         "terraformingRate": 0,
         "megaCreditStock": 23,
         "megaCreditYield": 0,
@@ -107,7 +115,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "타르시스 공화국",
+        "corporationId": "tharsisRepublic",
+        "corporationName": "타르시스 공화국",
         "terraformingRate": 0,
         "megaCreditStock": 40,
         "megaCreditYield": 0,
@@ -120,7 +129,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "토르게이트",
+        "corporationId": "thorgate",
+        "corporationName": "토르게이트",
         "terraformingRate": 0,
         "megaCreditStock": 48,
         "megaCreditYield": 0,
@@ -133,7 +143,8 @@
         "energyYield": 1,
         "heatYield": 0
       }, {
-        "corprationName": "UNMI",
+        "corporationId": "unitedNationsMarsInitiative",
+        "corporationName": "UNMI",
         "terraformingRate": 0,
         "megaCreditStock": 40,
         "megaCreditYield": 0,
@@ -151,7 +162,8 @@
     "expansionId": "corporateEra",
     "corprationList": [
       {
-        "corprationName": "새턴 시스템",
+        "corporationId": "saturnSystems",
+        "corporationName": "새턴 시스템",
         "terraformingRate": 0,
         "megaCreditStock": 42,
         "megaCreditYield": 0,
@@ -164,7 +176,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "테랙터",
+        "corporationId": "teractor",
+        "corporationName": "테랙터",
         "terraformingRate": 0,
         "megaCreditStock": 60,
         "megaCreditYield": 0,
@@ -182,7 +195,8 @@
     "expansionId": "venusNext",
     "corprationList": [
       {
-        "corprationName": "아프로디테",
+        "corporationId": "aphrodite",
+        "corporationName": "아프로디테",
         "terraformingRate": 0,
         "megaCreditStock": 47,
         "megaCreditYield": 0,
@@ -195,7 +209,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "셀레스틱",
+        "corporationId": "celestic",
+        "corporationName": "셀레스틱",
         "terraformingRate": 0,
         "megaCreditStock": 42,
         "megaCreditYield": 0,
@@ -208,7 +223,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "매뉴테크",
+        "corporationId": "manutech",
+        "corporationName": "매뉴테크",
         "terraformingRate": 0,
         "megaCreditStock": 35,
         "megaCreditYield": 0,
@@ -221,7 +237,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "모닝스타 인코퍼레이션",
+        "corporationId": "morningStarInc",
+        "corporationName": "모닝스타 인코퍼레이션",
         "terraformingRate": 0,
         "megaCreditStock": 50,
         "megaCreditYield": 0,
@@ -234,7 +251,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "바이론",
+        "corporationId": "viron",
+        "corporationName": "바이론",
         "terraformingRate": 0,
         "megaCreditStock": 48,
         "megaCreditYield": 0,
@@ -252,7 +270,8 @@
     "expansionId": "prelude",
     "corprationList": [
       {
-        "corprationName": "쳉싱 마스",
+        "corporationId": "cheungShingMars",
+        "corporationName": "쳉싱 마스",
         "terraformingRate": 0,
         "megaCreditStock": 44,
         "megaCreditYield": 3,
@@ -265,7 +284,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "포인트 루나",
+        "corporationId": "pointLuna",
+        "corporationName": "포인트 루나",
         "terraformingRate": 0,
         "megaCreditStock": 38,
         "megaCreditYield": 0,
@@ -278,7 +298,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "로빈슨 인더스트리",
+        "corporationId": "robinsonIndustries",
+        "corporationName": "로빈슨 인더스트리",
         "terraformingRate": 0,
         "megaCreditStock": 47,
         "megaCreditYield": 0,
@@ -291,7 +312,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "밸리 트러스트",
+        "corporationId": "valleyTrust",
+        "corporationName": "밸리 트러스트",
         "terraformingRate": 0,
         "megaCreditStock": 37,
         "megaCreditYield": 0,
@@ -304,7 +326,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "비토르",
+        "corporationId": "vitor",
+        "corporationName": "비토르",
         "terraformingRate": 0,
         "megaCreditStock": 45,
         "megaCreditYield": 0,
@@ -322,7 +345,8 @@
     "expansionId": "colonies",
     "corprationList": [
       {
-        "corprationName": "아크라이트",
+        "corporationId": "arklight",
+        "corporationName": "아크라이트",
         "terraformingRate": 0,
         "megaCreditStock": 45,
         "megaCreditYield": 2,
@@ -335,7 +359,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "아리도르",
+        "corporationId": "aridor",
+        "corporationName": "아리도르",
         "terraformingRate": 0,
         "megaCreditStock": 40,
         "megaCreditYield": 0,
@@ -348,7 +373,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "폴리페모스",
+        "corporationId": "polyphemos",
+        "corporationName": "폴리페모스",
         "terraformingRate": 0,
         "megaCreditStock": 50,
         "megaCreditYield": 5,
@@ -361,7 +387,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "포세이돈",
+        "corporationId": "poseidon",
+        "corporationName": "포세이돈",
         "terraformingRate": 0,
         "megaCreditStock": 45,
         "megaCreditYield": 0,
@@ -374,7 +401,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "스톰크래프트",
+        "corporationId": "stormCraftIncorporated",
+        "corporationName": "스톰크래프트",
         "terraformingRate": 0,
         "megaCreditStock": 48,
         "megaCreditYield": 0,
@@ -392,7 +420,8 @@
     "expansionId": "turmoil",
     "corprationList": [
       {
-        "corprationName": "레이크프론트 리조트",
+        "corporationId": "lakefrontResorts",
+        "corporationName": "레이크프론트 리조트",
         "terraformingRate": 0,
         "megaCreditStock": 54,
         "megaCreditYield": 0,
@@ -405,7 +434,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "프리스타",
+        "corporationId": "pristar",
+        "corporationName": "프리스타",
         "terraformingRate": -2,
         "megaCreditStock": 53,
         "megaCreditYield": 0,
@@ -418,7 +448,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "셉템 트리부스",
+        "corporationId": "septemTribus",
+        "corporationName": "셉템 트리부스",
         "terraformingRate": 0,
         "megaCreditStock": 36,
         "megaCreditYield": 0,
@@ -431,7 +462,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "테라랩스",
+        "corporationId": "terralabsResearch",
+        "corporationName": "테라랩스",
         "terraformingRate": -1,
         "megaCreditStock": 14,
         "megaCreditYield": 0,
@@ -444,7 +476,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "유토피아",
+        "corporationId": "utopiaInvest",
+        "corporationName": "유토피아",
         "terraformingRate": 0,
         "megaCreditStock": 40,
         "megaCreditYield": 0,
@@ -462,7 +495,8 @@
     "expansionId": "promotion",
     "corprationList": [
       {
-        "corprationName": "리사이클론",
+        "corporationId": "recyclon",
+        "corporationName": "리사이클론",
         "terraformingRate": 0,
         "megaCreditStock": 38,
         "megaCreditYield": 0,
@@ -475,7 +509,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "스플라이스",
+        "corporationId": "spliceTacticalGenomics",
+        "corporationName": "스플라이스",
         "terraformingRate": 0,
         "megaCreditStock": 44,
         "megaCreditYield": 0,
@@ -488,7 +523,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "아카디아 공동체",
+        "corporationId": "arcadianCommunities",
+        "corporationName": "아카디아 공동체",
         "terraformingRate": 0,
         "megaCreditStock": 40,
         "megaCreditYield": 0,
@@ -501,7 +537,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "몬스 손해보험",
+        "corporationId": "monsInsurance",
+        "corporationName": "몬스 손해보험",
         "terraformingRate": 0,
         "megaCreditStock": 48,
         "megaCreditYield": 4,
@@ -514,7 +551,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "팩토럼",
+        "corporationId": "factorum",
+        "corporationName": "팩토럼",
         "terraformingRate": 0,
         "megaCreditStock": 37,
         "megaCreditYield": 0,
@@ -527,7 +565,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "필레어스",
+        "corporationId": "philares",
+        "corporationName": "필레어스",
         "terraformingRate": 0,
         "megaCreditStock": 47,
         "megaCreditYield": 0,
@@ -540,7 +579,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "아스트로드릴 엔터프라이즈",
+        "corporationId": "astrodrillEnterprise",
+        "corporationName": "아스트로드릴 엔터프라이즈",
         "terraformingRate": 0,
         "megaCreditStock": 38,
         "megaCreditYield": 0,
@@ -553,7 +593,8 @@
         "energyYield": 0,
         "heatYield": 0
       }, {
-        "corprationName": "파머시 유니온",
+        "corporationId": "pharmacyUnion",
+        "corporationName": "파머시 유니온",
         "terraformingRate": 0,
         "megaCreditStock": 54,
         "megaCreditYield": 0,
