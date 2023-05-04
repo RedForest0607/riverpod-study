@@ -25,7 +25,7 @@ class CorporationSelectionWidget extends HookConsumerWidget {
           color: Colors.white,
         ),
       ),
-      child: Text("hello"),
+      child: const Text("hello"),
     );
   }
 }

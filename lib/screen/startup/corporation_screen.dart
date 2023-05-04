@@ -1,10 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/model/expansion.dart';
-import 'package:riverpod_study/screen/startup/widget/corporation_selection_widget.dart';
 import 'dart:convert';
 
 class CorporationScreen extends HookConsumerWidget {
@@ -38,19 +35,19 @@ class CorporationScreen extends HookConsumerWidget {
       body: SingleChildScrollView(
         child: SizedBox(
           child: Column(
-            children: <Widget>[
-              jsonData.when(
-                loading: () => const Text("loading..."),
-                error: (err, stack) => Text("Error: $err"),
-                data: (jsonData) {
-                  //TODO hadle async json data
-                  for (int i = 0; i < 8; i++) {
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 80,
-                    );
-                  }
-                },
-              )
+            children: [
+              // jsonData.when(
+              //   loading: () => const Text("loading..."),
+              //   error: (err, stack) => Text("Error: $err"),
+              //   data: (jsonData) {
+              //     // TODO: hadle async json data
+              //     for (int i = 0; i < 8; i++) {
+              //       SizedBox(
+              //         height: MediaQuery.of(context).size.height / 80,
+              //       );
+              //     }
+              //   },
+              // )
             ],
           ),
         ),

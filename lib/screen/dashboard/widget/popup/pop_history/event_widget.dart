@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/notifiers/event_cursor.dart';
 import 'package:riverpod_study/notifiers/history.dart';
 
-import 'package:riverpod_study/enum/counter_enum.dart';
+import 'package:riverpod_study/common/enum/counter_enum.dart';
 import 'package:riverpod_study/screen/history/history_screen.dart';
 
 class EventWidget extends HookConsumerWidget {

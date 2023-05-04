@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/enum/counter_enum.dart';
+import 'package:riverpod_study/common/enum/counter_enum.dart';
 import 'package:riverpod_study/screen/history/widget/counter/generation_history_counter_widget.dart';
 import 'package:riverpod_study/screen/history/widget/counter/stock_history_counter_widget.dart';
 import 'package:riverpod_study/screen/history/widget/counter/yield_history_counter_widget.dart';

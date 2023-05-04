@@ -108,9 +108,9 @@ class Event {
   }
 
   int getValue(String resourceType) {
-    var maap = _toMap();
-    if (maap.containsKey(resourceType)) {
-      return maap[resourceType]!;
+    var map = _toMap();
+    if (map.containsKey(resourceType)) {
+      return map[resourceType]!;
     }
     throw ArgumentError('property not found');
   }

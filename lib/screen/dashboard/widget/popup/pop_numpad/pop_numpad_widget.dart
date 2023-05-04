@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/enum/counter_enum.dart';
+import 'package:riverpod_study/common/enum/counter_enum.dart';
 import 'package:riverpod_study/notifiers/delta.dart';
 import 'package:riverpod_study/notifiers/resource.dart';
 import 'package:riverpod_study/screen/dashboard/widget/popup/pop_numpad/number_button_widget.dart';
