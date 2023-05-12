@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/routes.dart';
-import 'package:riverpod_study/screen/dashboard/dashboard_screen.dart';
+import 'package:riverpod_study/src/common/routes.dart';
+import 'package:riverpod_study/src/view/dashboard/dashboard_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: TerraformingDashboard()));
