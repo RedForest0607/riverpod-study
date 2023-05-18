@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/model/resource.dart';
-import 'package:riverpod_study/notifiers/event_cursor.dart';
-import 'package:riverpod_study/notifiers/history.dart';
-import 'package:riverpod_study/notifiers/resource.dart';
+import 'package:riverpod_study/provider/event_cursor_provider.dart';
+import 'package:riverpod_study/provider/history_provider.dart';
+import 'package:riverpod_study/provider/resource_provider.dart';
 
 class StockHistoryCounterWidget extends HookConsumerWidget {
   const StockHistoryCounterWidget({super.key, required this.resouceName});

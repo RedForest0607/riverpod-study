@@ -8,15 +8,15 @@ class DBCrud {
     return test.clone(id: id);
   }
 
-  static Future<List<Test>> getName() async {
-    var db = await DBHelper().database;
-    var result = await db.query(Test.tableName,
-        columns: [TestFields.id, TestFields.name], limit: 1);
+  // static Future<List<Test>> getName() async {
+  //   var db = await DBHelper().database;
+  //   var result = await db.query(Test.tableName,
+  //       columns: [TestFields.id, TestFields.name], limit: 1);
 
-    return result.map(
-      (data) {
-        return Test.fromJson(data);
-      },
-    ).toList();
-  }
+  //   return result.map(
+  //     (data) {
+  //       return Test.fromJson(data);
+  //     },
+  //   ).toList();
+  // }
 }

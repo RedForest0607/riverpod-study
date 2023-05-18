@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/notifiers/history.dart';
+import 'package:riverpod_study/provider/history_provider.dart';
 
 import 'package:riverpod_study/view/dashboard/widget/popup/pop_history/event_widget.dart';
 

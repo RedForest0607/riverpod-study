@@ -45,14 +45,14 @@ class HistoryNotifier extends ChangeNotifier {
       heatYield: history[length - 1].heatYield,
     );
 
-    if (history[length - 1].resourceType == resourceType &&
-        history[length - 1].eventValue * eventValue > 0) {
-      history[length - 1].eventValue += eventValue;
-      history[length - 1].setValue(resourceType, eventValue);
-    } else if (eventValue != 0) {
-      event.setValue(resourceType, eventValue);
-      history.add(event);
-    }
+    // if (history[length - 1].resourceType == resourceType &&
+    //     history[length - 1].eventValue * eventValue > 0) {
+    //   history[length - 1].eventValue += eventValue;
+    //   history[length - 1].setValue(resourceType, eventValue);
+    // } else if (eventValue != 0) {
+    //   event.setValue(resourceType, eventValue);
+    //   history.add(event);
+    // }
 
     notifyListeners();
   }

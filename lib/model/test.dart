@@ -1,6 +1,6 @@
 class TestFields {
-  static final String id = '_id';
-  static final String name = 'name';
+  static const String id = '_id';
+  static const String name = 'name';
 }
 
 class Test {
@@ -13,7 +13,7 @@ class Test {
     required this.name,
   });
 
-  Map<String, dynamic?> toJson() {
+  Map<String, dynamic> toJson() {
     return {
       TestFields.id: id,
       TestFields.name: name,

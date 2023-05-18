@@ -1,4 +1,4 @@
-import 'package:riverpod_study/model/test.dart';
+import 'package:riverpod_study/model/event.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -23,16 +23,31 @@ class DBHelper {
 
   Future<void> _initDBHelper() async {
     var dataBasePath = await getDatabasesPath();
-    String path = join(dataBasePath, "test.db");
+    String path = join(dataBasePath, "TM_MAT_DB.db");
     _database = await openDatabase(path, version: 1, onCreate: _databaseCreate);
   }
 
   void _databaseCreate(Database db, int version) async {
     await db.execute('''
-      create table ${Test.tableName} (
-        ${TestFields.id} integer primary key autoincrement,
-        ${TestFields.name} text
-      ) 
+      create table ${Event.tableName} (
+        ${EventFields.eventId} INTEGER PRIMARY KEY AUTOINCREMENT,
+        ${EventFields.resourceType} TEXT NOT NULL,
+        ${EventFields.eventValue} INTEGER NOT NULL,
+        ${EventFields.generation} INTEGER NOT NULL,
+        ${EventFields.terraformingRate} INTEGER NOT NULL,
+        ${EventFields.megaCreditStock} INTEGER NOT NULL,
+        ${EventFields.megaCreditYield} INTEGER NOT NULL,
+        ${EventFields.steelStock} INTEGER NOT NULL,
+        ${EventFields.steelYield} INTEGER NOT NULL,
+        ${EventFields.titaniumStock} INTEGER NOT NULL,
+        ${EventFields.titaniumYield} INTEGER NOT NULL,
+        ${EventFields.plantsStock} INTEGER NOT NULL,
+        ${EventFields.plantsYield} INTEGER NOT NULL,
+        ${EventFields.energyStock} INTEGER NOT NULL,
+        ${EventFields.energyYield} INTEGER NOT NULL,
+        ${EventFields.heatStock} INTEGER NOT NULL,
+        ${EventFields.heatYield} INTEGER NOT NULL
+      )
     ''');
   }
 

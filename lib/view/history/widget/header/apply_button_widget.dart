@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/model/resource.dart';
-import 'package:riverpod_study/notifiers/event_cursor.dart';
-import 'package:riverpod_study/notifiers/history.dart';
-import 'package:riverpod_study/notifiers/resource.dart';
+import 'package:riverpod_study/provider/event_cursor_provider.dart';
+import 'package:riverpod_study/provider/history_provider.dart';
+import 'package:riverpod_study/provider/resource_provider.dart';
 
 class NewGameButtonWidget extends HookConsumerWidget {
   const NewGameButtonWidget({super.key});
@@ -39,7 +39,7 @@ class NewGameButtonWidget extends HookConsumerWidget {
               ),
               TextButton(
                 onPressed: () => {
-                  revokeHistory(eventCursor, ref),
+                  // revokeHistory(eventCursor, ref),
                   Navigator.pop(context),
                   Navigator.pop(context),
                   Navigator.pop(context),
@@ -92,25 +92,25 @@ class NewGameButtonWidget extends HookConsumerWidget {
   }
 }
 
-void revokeHistory(int eventCursor, WidgetRef ref) {
-  List<Event> history = ref.watch(historyProvider).history;
-  Resource resource = Resource(
-    generation: history.elementAt(eventCursor).generation,
-    terraformingRate: history.elementAt(eventCursor).terraformingRate,
-    megaCreditStock: history.elementAt(eventCursor).megaCreditStock,
-    megaCreditYield: history.elementAt(eventCursor).megaCreditYield,
-    steelStock: history.elementAt(eventCursor).steelStock,
-    steelYield: history.elementAt(eventCursor).steelYield,
-    titaniumStock: history.elementAt(eventCursor).titaniumStock,
-    titaniumYield: history.elementAt(eventCursor).titaniumYield,
-    plantsStock: history.elementAt(eventCursor).plantsStock,
-    plantsYield: history.elementAt(eventCursor).plantsYield,
-    energyStock: history.elementAt(eventCursor).energyStock,
-    energyYield: history.elementAt(eventCursor).energyYield,
-    heatStock: history.elementAt(eventCursor).heatStock,
-    heatYield: history.elementAt(eventCursor).heatYield,
-  );
+// void revokeHistory(int eventCursor, WidgetRef ref) {
+//   List<Event> history = ref.watch(historyProvider).history;
+//   Resource resource = Resource(
+//     generation: history.elementAt(eventCursor).generation,
+//     terraformingRate: history.elementAt(eventCursor).terraformingRate,
+//     megaCreditStock: history.elementAt(eventCursor).megaCreditStock,
+//     megaCreditYield: history.elementAt(eventCursor).megaCreditYield,
+//     steelStock: history.elementAt(eventCursor).steelStock,
+//     steelYield: history.elementAt(eventCursor).steelYield,
+//     titaniumStock: history.elementAt(eventCursor).titaniumStock,
+//     titaniumYield: history.elementAt(eventCursor).titaniumYield,
+//     plantsStock: history.elementAt(eventCursor).plantsStock,
+//     plantsYield: history.elementAt(eventCursor).plantsYield,
+//     energyStock: history.elementAt(eventCursor).energyStock,
+//     energyYield: history.elementAt(eventCursor).energyYield,
+//     heatStock: history.elementAt(eventCursor).heatStock,
+//     heatYield: history.elementAt(eventCursor).heatYield,
+//   );
 
-  ref.read(resourceProvider.notifier).replace(resource);
-  ref.read(historyProvider.notifier).revoke(eventCursor);
-}
+//   ref.read(resourceProvider.notifier).replace(resource);
+//   ref.read(historyProvider.notifier).revoke(eventCursor);
+// }

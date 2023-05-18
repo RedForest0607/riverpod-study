@@ -3,9 +3,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
 import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/model/resource.dart';
-import 'package:riverpod_study/notifiers/event_cursor.dart';
-import 'package:riverpod_study/notifiers/history.dart';
-import 'package:riverpod_study/notifiers/resource.dart';
+import 'package:riverpod_study/provider/event_cursor_provider.dart';
+import 'package:riverpod_study/provider/history_provider.dart';
+import 'package:riverpod_study/provider/resource_provider.dart';
 
 class TerraformingRateHistoryCounterWidget extends HookConsumerWidget {
   const TerraformingRateHistoryCounterWidget({super.key});

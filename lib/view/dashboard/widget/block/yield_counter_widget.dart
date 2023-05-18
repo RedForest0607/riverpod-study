@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
 import 'package:riverpod_study/model/resource.dart';
-import 'package:riverpod_study/notifiers/history.dart';
-import 'package:riverpod_study/notifiers/resource.dart';
+import 'package:riverpod_study/provider/history_provider.dart';
+import 'package:riverpod_study/provider/resource_provider.dart';
 
 class YieldCounterWidget extends HookConsumerWidget {
   const YieldCounterWidget({super.key, required this.id, required this.title});

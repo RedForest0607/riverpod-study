@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
 import 'package:riverpod_study/model/resource.dart';
-import 'package:riverpod_study/notifiers/delta.dart';
-import 'package:riverpod_study/notifiers/resource.dart';
+import 'package:riverpod_study/provider/delta_provider.dart';
+import 'package:riverpod_study/provider/resource_provider.dart';
 import 'package:riverpod_study/view/dashboard/widget/popup/pop_numpad/number_button_widget.dart';
 
 class PopNumpadWidget extends HookConsumerWidget {
