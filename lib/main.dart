@@ -15,7 +15,6 @@ class TerraformingDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DBHelper().database;
     return MaterialApp(
       title: 'Terraforming Dashboard',
       debugShowCheckedModeBanner: false,

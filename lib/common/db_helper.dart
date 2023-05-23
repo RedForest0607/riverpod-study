@@ -22,7 +22,7 @@ class DBHelper {
   }
 
   Future<void> _initDBHelper() async {
-    var dataBasePath = await getDatabasesPath();
+    String dataBasePath = await getDatabasesPath();
     String path = join(dataBasePath, "TM_MAT_DB.db");
     _database = await openDatabase(path, version: 1, onCreate: _databaseCreate);
   }

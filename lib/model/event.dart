@@ -22,9 +22,8 @@ class EventFields {
   static const String heatYield = 'HEAT_YIELD';
 }
 
-@immutable
-
 /// Model
+@immutable
 class Event {
   static const String tableName = 'TEVENT';
   final int? eventId;
