@@ -43,15 +43,30 @@ class TerraformingRateCounterWidget extends HookConsumerWidget {
                     color: Colors.white,
                   ),
                   onPressed: () => {
-                    ref
-                        .read(resourceProvider.notifier)
-                        .subtract('terraformingRate'),
-                    if (resource.getValue(CounterEnum.terraformingRate.id) > 0)
-                      {
-                        ref
-                            .read(historyProvider.notifier)
-                            .record('terraformingRate', -1)
-                      },
+                    // ref
+                    // .read(resourceProvider.notifier)
+                    // .subtract('terraformingRate'),
+                    // if (resource.getValue(CounterEnum.terraformingRate.id) > 0)
+                    // {
+                    EventService.insertEvent(const Event(
+                      resourceType: "terraformingRate",
+                      eventValue: 1,
+                      generation: 1,
+                      terraformingRate: 1,
+                      megaCreditStock: 1,
+                      megaCreditYield: 1,
+                      steelStock: 1,
+                      steelYield: 1,
+                      titaniumStock: 1,
+                      titaniumYield: 1,
+                      plantsStock: 1,
+                      plantsYield: 1,
+                      energyStock: 1,
+                      energyYield: 1,
+                      heatStock: 1,
+                      heatYield: 1,
+                    )),
+                    // },
                   },
                 )),
           ),
@@ -86,6 +101,7 @@ class TerraformingRateCounterWidget extends HookConsumerWidget {
                     // ref
                     //     .read(historyProvider.notifier)
                     //     .record('terraformingRate', 1),
+                    EventService.deleteEventList(21),
                   },
                 )),
           ),

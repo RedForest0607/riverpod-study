@@ -35,4 +35,22 @@ class EventRepository {
       },
     ).toList();
   }
+
+  static Future<int> insertEvent(Event event) async {
+    Database db = await DBHelper().database;
+    int result = await db.insert(
+      Event.tableName,
+      event.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+    return result;
+  }
+
+  static Future<int> deleteEventList(int index) async {
+    Database db = await DBHelper().database;
+    int result = 0;
+    result = await db
+        .delete(Event.tableName, where: 'EVENT_ID >= ?', whereArgs: [index]);
+    return result;
+  }
 }
