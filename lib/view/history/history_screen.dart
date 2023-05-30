@@ -77,10 +77,10 @@ class HistoryScreen extends StatelessWidget {
                         widgetIcon: CounterEnum.megaCredit.icon,
                         children: [
                           StockHistoryCounterWidget(
-                            resouceName: CounterEnum.megaCredit.id,
+                            resourceName: CounterEnum.megaCredit.id,
                           ),
                           YieldHistoryCounterWidget(
-                            resouceName: CounterEnum.megaCredit.id,
+                            resourceName: CounterEnum.megaCredit.id,
                           ),
                         ],
                       ),
@@ -93,10 +93,10 @@ class HistoryScreen extends StatelessWidget {
                         widgetIcon: CounterEnum.steel.icon,
                         children: [
                           StockHistoryCounterWidget(
-                            resouceName: CounterEnum.steel.id,
+                            resourceName: CounterEnum.steel.id,
                           ),
                           YieldHistoryCounterWidget(
-                            resouceName: CounterEnum.steel.id,
+                            resourceName: CounterEnum.steel.id,
                           ),
                         ],
                       ),
@@ -109,10 +109,10 @@ class HistoryScreen extends StatelessWidget {
                         widgetIcon: CounterEnum.titanium.icon,
                         children: [
                           StockHistoryCounterWidget(
-                            resouceName: CounterEnum.titanium.id,
+                            resourceName: CounterEnum.titanium.id,
                           ),
                           YieldHistoryCounterWidget(
-                            resouceName: CounterEnum.titanium.id,
+                            resourceName: CounterEnum.titanium.id,
                           ),
                         ],
                       ),
@@ -133,10 +133,10 @@ class HistoryScreen extends StatelessWidget {
                         widgetIcon: CounterEnum.plants.icon,
                         children: [
                           StockHistoryCounterWidget(
-                            resouceName: CounterEnum.plants.id,
+                            resourceName: CounterEnum.plants.id,
                           ),
                           YieldHistoryCounterWidget(
-                            resouceName: CounterEnum.plants.id,
+                            resourceName: CounterEnum.plants.id,
                           ),
                         ],
                       ),
@@ -149,10 +149,10 @@ class HistoryScreen extends StatelessWidget {
                         widgetIcon: CounterEnum.energy.icon,
                         children: [
                           StockHistoryCounterWidget(
-                            resouceName: CounterEnum.energy.id,
+                            resourceName: CounterEnum.energy.id,
                           ),
                           YieldHistoryCounterWidget(
-                            resouceName: CounterEnum.energy.id,
+                            resourceName: CounterEnum.energy.id,
                           ),
                         ],
                       ),
@@ -165,10 +165,10 @@ class HistoryScreen extends StatelessWidget {
                         widgetIcon: CounterEnum.heat.icon,
                         children: [
                           StockHistoryCounterWidget(
-                            resouceName: CounterEnum.heat.id,
+                            resourceName: CounterEnum.heat.id,
                           ),
                           YieldHistoryCounterWidget(
-                            resouceName: CounterEnum.heat.id,
+                            resourceName: CounterEnum.heat.id,
                           ),
                         ],
                       ),

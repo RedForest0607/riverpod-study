@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/model/resource.dart';
-import 'package:riverpod_study/provider/resource_provider.dart';
+import 'package:riverpod_study/model/event.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
 import 'package:riverpod_study/view/dashboard/widget/popup/pop_common_widget.dart';
 import 'package:riverpod_study/view/dashboard/widget/popup/pop_numpad/pop_numpad_widget.dart';
 
@@ -13,7 +13,7 @@ class StockCounterWidget extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Resource resource = ref.watch(resourceProvider);
+    Event event = ref.watch(eventProvider);
 
     return SizedBox(
       height: null,
@@ -35,7 +35,7 @@ class StockCounterWidget extends HookConsumerWidget {
                     );
                   }),
               child: Text(
-                resource.getValue('${id}Stock').toString(),
+                event.getValue('${id}Stock').toString(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: MediaQuery.of(context).size.height *

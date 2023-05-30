@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
 import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/model/resource.dart';
 import 'package:riverpod_study/provider/event_cursor_provider.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
 import 'package:riverpod_study/provider/history_provider.dart';
-import 'package:riverpod_study/provider/resource_provider.dart';
 
 class GenerationHistoryCounterWidget extends HookConsumerWidget {
   const GenerationHistoryCounterWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Resource resource = ref.watch(resourceProvider);
+    Event event = ref.watch(eventProvider);
     int eventCursor = ref.watch(eventCursorProvider);
     List<Event> history = ref.watch(historyProvider).history;
 
@@ -32,7 +31,7 @@ class GenerationHistoryCounterWidget extends HookConsumerWidget {
           Expanded(
             flex: 1,
             child: Text(
-              resource.getValue(CounterEnum.generation.id).toString(),
+              event.getValue(CounterEnum.generation.id).toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *

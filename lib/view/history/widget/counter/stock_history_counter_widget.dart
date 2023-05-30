@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/model/resource.dart';
-import 'package:riverpod_study/provider/event_cursor_provider.dart';
-import 'package:riverpod_study/provider/history_provider.dart';
-import 'package:riverpod_study/provider/resource_provider.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
 
 class StockHistoryCounterWidget extends HookConsumerWidget {
-  const StockHistoryCounterWidget({super.key, required this.resouceName});
+  const StockHistoryCounterWidget({super.key, required this.resourceName});
 
-  final String resouceName;
+  final String resourceName;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Resource resource = ref.watch(resourceProvider);
-    int eventCursor = ref.watch(eventCursorProvider);
-    List<Event> history = ref.watch(historyProvider).history;
+    Event event = ref.watch(eventProvider);
 
     return SizedBox(
       height: null,
@@ -24,7 +19,7 @@ class StockHistoryCounterWidget extends HookConsumerWidget {
           Expanded(
             flex: 3,
             child: Text(
-              resource.getValue("${resouceName}Stock").toString(),
+              event.getValue("${resourceName}Stock").toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *
@@ -50,7 +45,7 @@ class StockHistoryCounterWidget extends HookConsumerWidget {
           Expanded(
             flex: 3,
             child: Text(
-              history[eventCursor].getValue("${resouceName}Stock").toString(),
+              event.getValue("${resourceName}Stock").toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *

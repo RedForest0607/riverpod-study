@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/model/resource.dart';
+import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/provider/delta_provider.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
 import 'package:riverpod_study/provider/history_provider.dart';
-import 'package:riverpod_study/provider/resource_provider.dart';
 
 class NumberButtonWidget extends HookConsumerWidget {
   const NumberButtonWidget(
@@ -63,7 +63,7 @@ class NumberButtonWidget extends HookConsumerWidget {
 
 void ufSetValue(
     String numberStr, String id, BuildContext context, WidgetRef ref) {
-  Resource resource = ref.watch(resourceProvider);
+  Event event = ref.watch(eventProvider);
   int delta = ref.watch(deltaProvider);
   int? parsedParam = int.tryParse(numberStr);
   int sign = 0;
@@ -78,8 +78,8 @@ void ufSetValue(
         sign = -1;
       }
       ref
-          .read(resourceProvider.notifier)
-          .set('${id}Stock', resource.getValue('${id}Stock') + delta * sign);
+          .read(eventProvider.notifier)
+          .set('${id}Stock', event.getValue('${id}Stock') + delta * sign);
 
       ref.read(historyProvider.notifier).record('${id}Stock', delta * sign);
       ref.watch(deltaProvider.notifier).reset();

@@ -108,31 +108,77 @@ class Event {
     };
   }
 
-  Map<String, int?> _toMap() {
-    return {
-      'eventValue': eventValue,
-      'generation': generation,
-      'terraformingRate': terraformingRate,
-      'megaCreditStock': megaCreditStock,
-      'megaCreditYield': megaCreditYield,
-      'steelStock': steelStock,
-      'steelYield': steelYield,
-      'titaniumStock': titaniumStock,
-      'titaniumYield': titaniumYield,
-      'plantsStock': plantsStock,
-      'plantsYield': plantsYield,
-      'energyStock': energyStock,
-      'energyYield': energyYield,
-      'heatStock': heatStock,
-      'heatYield': heatYield
-    };
+  int getValue(String resourceType) {
+    switch (resourceType) {
+      case 'generation':
+        return generation!;
+      case 'terraformingRate':
+        return terraformingRate!;
+      case 'megaCreditStock':
+        return megaCreditStock!;
+      case 'megaCreditYield':
+        return megaCreditYield!;
+      case 'steelStock':
+        return steelStock!;
+      case 'steelYield':
+        return steelYield!;
+      case 'titaniumStock':
+        return titaniumStock!;
+      case 'titaniumYield':
+        return titaniumYield!;
+      case 'plantsStock':
+        return plantsStock!;
+      case 'plantsYield':
+        return plantsYield!;
+      case 'energyStock':
+        return energyStock!;
+      case 'energyYield':
+        return energyYield!;
+      case 'heatStock':
+        return heatStock!;
+      case 'heatYield':
+        return heatYield!;
+      default:
+        return 0;
+    }
   }
 
-  int getValue(String resourceType) {
-    var map = _toMap();
-    if (map.containsKey(resourceType)) {
-      return map[resourceType]!;
-    }
-    throw ArgumentError('property not found');
+  Event copyWith(
+      {int? eventId,
+      String? resourceType,
+      int? eventValue,
+      int? generation,
+      int? terraformingRate,
+      int? megaCreditStock,
+      int? megaCreditYield,
+      int? steelStock,
+      int? steelYield,
+      int? titaniumStock,
+      int? titaniumYield,
+      int? plantsStock,
+      int? plantsYield,
+      int? energyStock,
+      int? energyYield,
+      int? heatStock,
+      int? heatYield}) {
+    return Event(
+      eventId: eventId ?? this.eventId,
+      resourceType: resourceType ?? this.resourceType,
+      eventValue: eventValue ?? this.eventValue,
+      generation: generation ?? this.generation,
+      terraformingRate: terraformingRate ?? this.terraformingRate,
+      megaCreditStock: megaCreditStock ?? this.megaCreditStock,
+      megaCreditYield: megaCreditYield ?? this.megaCreditYield,
+      steelStock: steelStock ?? this.steelStock,
+      steelYield: steelYield ?? this.steelYield,
+      titaniumStock: titaniumStock ?? this.titaniumStock,
+      titaniumYield: titaniumYield ?? this.titaniumYield,
+      plantsStock: plantsStock ?? this.plantsStock,
+      plantsYield: plantsYield ?? this.plantsYield,
+      energyStock: energyStock ?? this.energyStock,
+      energyYield: energyYield ?? this.energyYield,
+      heatStock: heatStock ?? this.heatStock,
+      heatYield: heatYield ?? this.heatYield,
+    );
   }
 }

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
-import 'package:riverpod_study/model/resource.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
+import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/provider/history_provider.dart';
-import 'package:riverpod_study/provider/resource_provider.dart';
 
 class YieldCounterWidget extends HookConsumerWidget {
   const YieldCounterWidget({super.key, required this.id, required this.title});
@@ -14,7 +14,7 @@ class YieldCounterWidget extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Resource resource = ref.watch(resourceProvider);
+    Event event = ref.watch(eventProvider);
 
     return SizedBox(
       height: null,
@@ -33,11 +33,11 @@ class YieldCounterWidget extends HookConsumerWidget {
                   color: Colors.white,
                 ),
                 onPressed: () => {
-                  ref.read(resourceProvider.notifier).subtract('${id}Yield'),
+                  ref.read(eventProvider.notifier).subtract('${id}Yield'),
                   if ((id != CounterEnum.megaCredit.id &&
-                          resource.getValue('${id}Yield') > 0) ||
+                          event.getValue('${id}Yield') > 0) ||
                       (id == CounterEnum.megaCredit.id &&
-                          resource.getValue('${id}Yield') > -5))
+                          event.getValue('${id}Yield') > -5))
                     {
                       ref
                           .read(historyProvider.notifier)
@@ -49,7 +49,7 @@ class YieldCounterWidget extends HookConsumerWidget {
           ),
           Expanded(
             child: Text(
-              resource.getValue('${id}Yield').toString(),
+              event.getValue('${id}Yield').toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *
@@ -72,7 +72,7 @@ class YieldCounterWidget extends HookConsumerWidget {
                   color: Colors.white,
                 ),
                 onPressed: () => {
-                  ref.read(resourceProvider.notifier).add('${id}Yield'),
+                  ref.read(eventProvider.notifier).add('${id}Yield'),
                   ref.read(historyProvider.notifier).record('${id}Yield', 1),
                 },
               ),

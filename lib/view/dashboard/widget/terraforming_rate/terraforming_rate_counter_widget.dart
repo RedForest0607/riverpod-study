@@ -2,9 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
+import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/model/resource.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
 import 'package:riverpod_study/provider/history_provider.dart';
 import 'package:riverpod_study/provider/resource_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,7 +16,7 @@ class TerraformingRateCounterWidget extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Resource resource = ref.watch(resourceProvider);
+    Event event = ref.watch(eventProvider);
 
     return Container(
       height: null,
@@ -43,47 +44,42 @@ class TerraformingRateCounterWidget extends HookConsumerWidget {
                     color: Colors.white,
                   ),
                   onPressed: () => {
-                    // ref
-                    // .read(resourceProvider.notifier)
-                    // .subtract('terraformingRate'),
-                    // if (resource.getValue(CounterEnum.terraformingRate.id) > 0)
-                    // {
-                    EventService.insertEvent(const Event(
-                      resourceType: "terraformingRate",
-                      eventValue: 1,
-                      generation: 1,
-                      terraformingRate: 1,
-                      megaCreditStock: 1,
-                      megaCreditYield: 1,
-                      steelStock: 1,
-                      steelYield: 1,
-                      titaniumStock: 1,
-                      titaniumYield: 1,
-                      plantsStock: 1,
-                      plantsYield: 1,
-                      energyStock: 1,
-                      energyYield: 1,
-                      heatStock: 1,
-                      heatYield: 1,
-                    )),
-                    // },
+                    ref
+                        .read(eventProvider.notifier)
+                        .subtract('terraformingRate'),
+                    if (event.getValue(CounterEnum.terraformingRate.id) > 0)
+                      {
+                        EventService.insertEvent(const Event(
+                          resourceType: "terraformingRate",
+                          eventValue: 1,
+                          generation: 1,
+                          terraformingRate: 1,
+                          megaCreditStock: 1,
+                          megaCreditYield: 1,
+                          steelStock: 1,
+                          steelYield: 1,
+                          titaniumStock: 1,
+                          titaniumYield: 1,
+                          plantsStock: 1,
+                          plantsYield: 1,
+                          energyStock: 1,
+                          energyYield: 1,
+                          heatStock: 1,
+                          heatYield: 1,
+                        )),
+                      },
                   },
                 )),
           ),
           Expanded(
-            child: FutureBuilder<List<Event>>(
-              future: EventService.retrieveEventList(),
-              builder: (context, AsyncSnapshot<List<Event>> snapshot) {
-                if (snapshot.data == null) {
-                  return const Text('Now Empty');
-                }
-
-                snapshot.data!.map((event) => log(
-                    'eventId: ${event.eventId}, resourceType: ${event.resourceType}, eventValue: ${event.eventValue}'));
-                return const Text('hello');
-              },
-            ),
-          ),
+              child: Text(event.getValue('terraformingRate').toString(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: MediaQuery.of(context).size.height *
+                        MediaQuery.of(context).size.width *
+                        0.00004,
+                  ),
+                  textAlign: TextAlign.center)),
           Expanded(
             flex: 1,
             child: SizedBox(
@@ -97,10 +93,10 @@ class TerraformingRateCounterWidget extends HookConsumerWidget {
                     color: Colors.white,
                   ),
                   onPressed: () => {
-                    // ref.read(resourceProvider.notifier).add('terraformingRate'),
-                    // ref
-                    //     .read(historyProvider.notifier)
-                    //     .record('terraformingRate', 1),
+                    ref.read(eventProvider.notifier).add('terraformingRate'),
+                    ref
+                        .read(historyProvider.notifier)
+                        .record('terraformingRate', 1),
                     EventService.deleteEventList(21),
                   },
                 )),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
-import 'package:riverpod_study/model/resource.dart';
+import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/provider/delta_provider.dart';
-import 'package:riverpod_study/provider/resource_provider.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
 import 'package:riverpod_study/view/dashboard/widget/popup/pop_numpad/number_button_widget.dart';
 
 class PopNumpadWidget extends HookConsumerWidget {
@@ -13,7 +13,7 @@ class PopNumpadWidget extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Resource resource = ref.watch(resourceProvider);
+    Event event = ref.watch(eventProvider);
     int delta = ref.watch(deltaProvider);
 
     return ClipRRect(
@@ -50,7 +50,7 @@ class PopNumpadWidget extends HookConsumerWidget {
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        resource.getValue('${id}Stock').toString(),
+                        event.getValue('${id}Stock').toString(),
                         style: TextStyle(
                             fontSize: MediaQuery.of(context).size.height *
                                 MediaQuery.of(context).size.width *

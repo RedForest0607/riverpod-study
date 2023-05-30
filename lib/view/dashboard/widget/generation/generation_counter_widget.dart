@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
+import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/model/resource.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
 import 'package:riverpod_study/provider/history_provider.dart';
 import 'package:riverpod_study/provider/resource_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,7 +13,7 @@ class GenerationCounterWidget extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Resource resource = ref.watch(resourceProvider);
+    Event event = ref.watch(eventProvider);
 
     return Container(
       height: null,
@@ -31,7 +33,7 @@ class GenerationCounterWidget extends HookConsumerWidget {
           ),
           Expanded(
             child: Text(
-              resource.getValue(CounterEnum.generation.id).toString(),
+              event.getValue(CounterEnum.generation.id).toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *
@@ -79,7 +81,7 @@ class GenerationCounterWidget extends HookConsumerWidget {
                         TextButton(
                           onPressed: () => {
                             ref
-                                .read(resourceProvider.notifier)
+                                .read(eventProvider.notifier)
                                 .add(CounterEnum.generation.id),
                             ref
                                 .read(historyProvider.notifier)
