@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
 import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/model/resource.dart';
 import 'package:riverpod_study/provider/event_provider.dart';
-import 'package:riverpod_study/provider/history_provider.dart';
-import 'package:riverpod_study/provider/resource_provider.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class GenerationCounterWidget extends HookConsumerWidget {
   const GenerationCounterWidget({super.key});
@@ -82,10 +79,7 @@ class GenerationCounterWidget extends HookConsumerWidget {
                           onPressed: () => {
                             ref
                                 .read(eventProvider.notifier)
-                                .add(CounterEnum.generation.id),
-                            ref
-                                .read(historyProvider.notifier)
-                                .record(CounterEnum.generation.id, 1),
+                                .modify(CounterEnum.generation.id, 1),
                             Navigator.pop(context, 'OK'),
                           },
                           style: ButtonStyle(

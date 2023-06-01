@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:riverpod_study/common/enum/counter_enum.dart';
-import 'package:riverpod_study/provider/event_provider.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/provider/history_provider.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
 
 class YieldCounterWidget extends HookConsumerWidget {
   const YieldCounterWidget({super.key, required this.id, required this.title});
@@ -33,16 +31,7 @@ class YieldCounterWidget extends HookConsumerWidget {
                   color: Colors.white,
                 ),
                 onPressed: () => {
-                  ref.read(eventProvider.notifier).subtract('${id}Yield'),
-                  if ((id != CounterEnum.megaCredit.id &&
-                          event.getValue('${id}Yield') > 0) ||
-                      (id == CounterEnum.megaCredit.id &&
-                          event.getValue('${id}Yield') > -5))
-                    {
-                      ref
-                          .read(historyProvider.notifier)
-                          .record('${id}Yield', -1)
-                    },
+                  ref.read(eventProvider.notifier).modify('${id}Yield', -1),
                 },
               ),
             ),
@@ -72,8 +61,7 @@ class YieldCounterWidget extends HookConsumerWidget {
                   color: Colors.white,
                 ),
                 onPressed: () => {
-                  ref.read(eventProvider.notifier).add('${id}Yield'),
-                  ref.read(historyProvider.notifier).record('${id}Yield', 1),
+                  ref.read(eventProvider.notifier).modify('${id}Yield', 1),
                 },
               ),
             ),

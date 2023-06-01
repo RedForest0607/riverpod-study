@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HistoryButtonWidget extends StatelessWidget {
-  const HistoryButtonWidget({super.key});
+class CancelButtonWidget extends StatelessWidget {
+  const CancelButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

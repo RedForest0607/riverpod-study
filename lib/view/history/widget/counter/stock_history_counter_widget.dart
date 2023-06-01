@@ -4,9 +4,11 @@ import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/provider/event_provider.dart';
 
 class StockHistoryCounterWidget extends HookConsumerWidget {
-  const StockHistoryCounterWidget({super.key, required this.resourceName});
+  const StockHistoryCounterWidget(
+      {super.key, required this.resourceName, required this.event});
 
   final String resourceName;
+  final Event event;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -45,7 +47,7 @@ class StockHistoryCounterWidget extends HookConsumerWidget {
           Expanded(
             flex: 3,
             child: Text(
-              event.getValue("${resourceName}Stock").toString(),
+              this.event.getValue("${resourceName}Stock").toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *

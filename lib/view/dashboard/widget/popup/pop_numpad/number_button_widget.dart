@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/provider/delta_provider.dart';
 import 'package:riverpod_study/provider/event_provider.dart';
-import 'package:riverpod_study/provider/history_provider.dart';
 
 class NumberButtonWidget extends HookConsumerWidget {
   const NumberButtonWidget(
@@ -63,7 +61,6 @@ class NumberButtonWidget extends HookConsumerWidget {
 
 void ufSetValue(
     String numberStr, String id, BuildContext context, WidgetRef ref) {
-  Event event = ref.watch(eventProvider);
   int delta = ref.watch(deltaProvider);
   int? parsedParam = int.tryParse(numberStr);
   int sign = 0;
@@ -77,11 +74,8 @@ void ufSetValue(
       } else if (numberStr == '-') {
         sign = -1;
       }
-      ref
-          .read(eventProvider.notifier)
-          .set('${id}Stock', event.getValue('${id}Stock') + delta * sign);
 
-      ref.read(historyProvider.notifier).record('${id}Stock', delta * sign);
+      ref.read(eventProvider.notifier).modify('${id}Stock', delta * sign);
       ref.watch(deltaProvider.notifier).reset();
       Navigator.pop(context);
     }

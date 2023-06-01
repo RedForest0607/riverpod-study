@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/provider/event_cursor_provider.dart';
-import 'package:riverpod_study/provider/history_provider.dart';
-
 import 'package:riverpod_study/common/enum/counter_enum.dart';
+import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/view/history/history_screen.dart';
 
-class EventWidget extends HookConsumerWidget {
-  const EventWidget({super.key, required this.eventNo});
+class EventWidget extends StatelessWidget {
+  const EventWidget({super.key, required this.event});
 
-  final int eventNo;
+  final Event event;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    List<Event> history = ref.watch(historyProvider).history;
-
+  Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.fromLTRB(
@@ -38,8 +32,8 @@ class EventWidget extends HookConsumerWidget {
       ),
       child: ElevatedButton(
         onPressed: () => {
-          ref.read(eventCursorProvider.notifier).setValue(eventNo),
-          Navigator.pushNamed(context, HistoryScreen.routeName),
+          Navigator.pushNamed(context, HistoryScreen.routeName,
+              arguments: event),
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
@@ -47,37 +41,37 @@ class EventWidget extends HookConsumerWidget {
         ),
         child: Row(
           children: [
-            // SizedBox(
-            //   width: MediaQuery.of(context).size.height *
-            //       MediaQuery.of(context).size.width *
-            //       0.0002,
-            //   child: Row(
-            //     children: [
-            //       Icon(
-            //         CounterEnum.getIcon(history[eventNo].resourceType),
-            //         color: CounterEnum.getColor(history[eventNo].resourceType),
-            //         size: MediaQuery.of(context).size.height *
-            //             MediaQuery.of(context).size.width *
-            //             0.00004,
-            //       ),
-            //       Text(CounterEnum.getType(history[eventNo].resourceType),
-            //           style: TextStyle(
-            //               fontSize: MediaQuery.of(context).size.height *
-            //                   MediaQuery.of(context).size.width *
-            //                   0.000035,
-            //               color: Colors.white)),
-            //     ],
-            //   ),
-            // ),
             SizedBox(
-                // child: Text(
-                //     '${history[eventNo].eventValue > 0 ? '+' : ''}${history[eventNo].eventValue}',
-                //     style: TextStyle(
-                //         fontSize: MediaQuery.of(context).size.height *
-                //             MediaQuery.of(context).size.width *
-                //             0.000035,
-                //         color: Colors.white)),
-                ),
+              width: MediaQuery.of(context).size.height *
+                  MediaQuery.of(context).size.width *
+                  0.0002,
+              child: Row(
+                children: [
+                  Icon(
+                    CounterEnum.getIcon(event.resourceType),
+                    color: CounterEnum.getColor(event.resourceType),
+                    size: MediaQuery.of(context).size.height *
+                        MediaQuery.of(context).size.width *
+                        0.00004,
+                  ),
+                  Text(CounterEnum.getType(event.resourceType),
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height *
+                              MediaQuery.of(context).size.width *
+                              0.000035,
+                          color: Colors.white)),
+                ],
+              ),
+            ),
+            SizedBox(
+              child: Text(
+                  '${event.eventValue > 0 ? '+' : ''}${event.eventValue}',
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height *
+                          MediaQuery.of(context).size.width *
+                          0.000035,
+                      color: Colors.white)),
+            ),
           ],
         ),
       ),

@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/provider/event_cursor_provider.dart';
 import 'package:riverpod_study/provider/event_provider.dart';
-import 'package:riverpod_study/provider/history_provider.dart';
 
 class YieldHistoryCounterWidget extends HookConsumerWidget {
-  const YieldHistoryCounterWidget({super.key, required this.resourceName});
+  const YieldHistoryCounterWidget(
+      {super.key, required this.resourceName, required this.event});
 
   final String resourceName;
+  final Event event;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Event event = ref.watch(eventProvider);
-    int eventCursor = ref.watch(eventCursorProvider);
-    List<Event> history = ref.watch(historyProvider).history;
 
     return SizedBox(
       height: null,
@@ -49,7 +47,7 @@ class YieldHistoryCounterWidget extends HookConsumerWidget {
           Expanded(
             flex: 3,
             child: Text(
-              history[eventCursor].getValue("${resourceName}Yield").toString(),
+              this.event.getValue("${resourceName}Yield").toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *

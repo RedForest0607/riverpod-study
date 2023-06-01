@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/view/history/widget/header/cancel_button_widget.dart';
+import 'package:riverpod_study/model/event.dart';
 import 'package:riverpod_study/view/history/widget/header/apply_button_widget.dart';
+import 'package:riverpod_study/view/history/widget/header/cancel_button_widget.dart';
 
 class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({super.key, this.height});
+  const HeaderWidget({super.key, this.height, required this.event});
 
   final double? height;
+  final Event event;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class HeaderWidget extends StatelessWidget {
                   5,
                   MediaQuery.of(context).size.width * 0.05,
                   2.5),
-              child: const NewGameButtonWidget(),
+              child: ApplyButtonWidget(event: event),
             ),
           ),
           Expanded(
@@ -59,7 +61,7 @@ class HeaderWidget extends StatelessWidget {
                   2.5,
                   MediaQuery.of(context).size.width * 0.05,
                   5),
-              child: const HistoryButtonWidget(),
+              child: const CancelButtonWidget(),
             ),
           )
         ],

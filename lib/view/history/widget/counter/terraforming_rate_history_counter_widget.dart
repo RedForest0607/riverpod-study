@@ -2,18 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/common/enum/counter_enum.dart';
 import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/provider/event_cursor_provider.dart';
 import 'package:riverpod_study/provider/event_provider.dart';
-import 'package:riverpod_study/provider/history_provider.dart';
 
 class TerraformingRateHistoryCounterWidget extends HookConsumerWidget {
-  const TerraformingRateHistoryCounterWidget({super.key});
+  const TerraformingRateHistoryCounterWidget({super.key, required this.event});
+
+  final Event event;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Event event = ref.watch(eventProvider);
-    int eventCursor = ref.watch(eventCursorProvider);
-    List<Event> history = ref.watch(historyProvider).history;
 
     return Container(
       height: null,
@@ -56,7 +54,7 @@ class TerraformingRateHistoryCounterWidget extends HookConsumerWidget {
           Expanded(
             flex: 1,
             child: Text(
-              history[eventCursor].terraformingRate.toString(),
+              this.event.terraformingRate.toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: MediaQuery.of(context).size.height *

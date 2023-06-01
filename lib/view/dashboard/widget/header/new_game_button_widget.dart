@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/provider/event_provider.dart';
-import 'package:riverpod_study/provider/resource_provider.dart';
 
 class NewGameButtonWidget extends HookConsumerWidget {
   const NewGameButtonWidget({super.key});

@@ -1,5 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/model/event.dart';
+import 'package:riverpod_study/service/event_service.dart';
 
 class EventNotifier extends Notifier<Event> {
   @override
@@ -26,6 +27,8 @@ class EventNotifier extends Notifier<Event> {
 
   void reset() {
     state = const Event(
+        resourceType: 'initial',
+        eventValue: 0,
         generation: 1,
         terraformingRate: 0,
         megaCreditStock: 0,
@@ -42,211 +45,193 @@ class EventNotifier extends Notifier<Event> {
         heatYield: 0);
   }
 
-  void add(String resourceType) {
+  void modify(String resourceType, int eventValue) {
     Event newEvent;
+    bool needDbInsert = false;
+    bool toBeModified = false;
+
+    switch (resourceType) {
+      case 'terraformingRate':
+        toBeModified = state.terraformingRate + eventValue >= 0;
+        break;
+      case 'megaCreditStock':
+        toBeModified = state.megaCreditStock + eventValue >= 0;
+        break;
+      case 'megaCreditYield':
+        toBeModified = state.megaCreditYield + eventValue >= -5;
+        break;
+      case 'steelStock':
+        toBeModified = state.steelStock + eventValue >= 0;
+        break;
+      case 'steelYield':
+        toBeModified = state.steelYield + eventValue >= 0;
+        break;
+      case 'titaniumStock':
+        toBeModified = state.titaniumStock + eventValue >= 0;
+        break;
+      case 'titaniumYield':
+        toBeModified = state.titaniumYield + eventValue >= 0;
+        break;
+      case 'plantsStock':
+        toBeModified = state.plantsStock + eventValue >= 0;
+        break;
+      case 'plantsYield':
+        toBeModified = state.plantsYield + eventValue >= 0;
+        break;
+      case 'energyStock':
+        toBeModified = state.energyStock + eventValue >= 0;
+        break;
+      case 'energyYield':
+        toBeModified = state.energyYield + eventValue >= 0;
+        break;
+      case 'heatStock':
+        toBeModified = state.heatStock + eventValue >= 0;
+        break;
+      case 'heatYield':
+        toBeModified = state.heatYield + eventValue >= 0;
+        break;
+      default:
+        toBeModified = false;
+        break;
+    }
+
+    if (!toBeModified) return;
+
+    if (state.resourceType != resourceType ||
+        state.eventValue * eventValue < 0 ||
+        resourceType == 'generation') {
+      needDbInsert = true;
+    }
 
     switch (resourceType) {
       case 'generation':
         newEvent = state.copyWith(
-            generation: state.generation! + 1,
-            megaCreditStock: state.megaCreditStock! +
-                (state.megaCreditYield! + state.terraformingRate!),
-            steelStock: state.steelStock! + state.steelYield!,
-            titaniumStock: state.titaniumStock! + state.titaniumYield!,
-            plantsStock: state.plantsStock! + state.plantsYield!,
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            generation: state.generation + 1,
+            megaCreditStock: state.megaCreditStock +
+                (state.megaCreditYield + state.terraformingRate),
+            steelStock: state.steelStock + state.steelYield,
+            titaniumStock: state.titaniumStock + state.titaniumYield,
+            plantsStock: state.plantsStock + state.plantsYield,
             energyStock: state.energyYield,
-            heatStock:
-                state.energyStock! + (state.heatStock! + state.heatYield!));
+            heatStock: state.energyStock + (state.heatStock + state.heatYield));
         break;
       case 'terraformingRate':
-        newEvent =
-            state.copyWith(terraformingRate: state.terraformingRate! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            terraformingRate: state.terraformingRate + eventValue);
         break;
       case 'megaCreditStock':
-        newEvent = state.copyWith(megaCreditStock: state.megaCreditStock! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            megaCreditStock: state.megaCreditStock + eventValue);
         break;
       case 'megaCreditYield':
-        newEvent = state.copyWith(megaCreditYield: state.megaCreditYield! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            megaCreditYield: state.megaCreditYield + eventValue);
         break;
       case 'steelStock':
-        newEvent = state.copyWith(steelStock: state.steelStock! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            steelStock: state.steelStock + eventValue);
         break;
       case 'steelYield':
-        newEvent = state.copyWith(steelYield: state.steelYield! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            steelYield: state.steelYield + eventValue);
         break;
       case 'titaniumStock':
-        newEvent = state.copyWith(titaniumStock: state.titaniumStock! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            titaniumStock: state.titaniumStock + eventValue);
         break;
       case 'titaniumYield':
-        newEvent = state.copyWith(titaniumYield: state.titaniumYield! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            titaniumYield: state.titaniumYield + eventValue);
         break;
       case 'plantsStock':
-        newEvent = state.copyWith(plantsStock: state.plantsStock! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            plantsStock: state.plantsStock + eventValue);
         break;
       case 'plantsYield':
-        newEvent = state.copyWith(plantsYield: state.plantsYield! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            plantsYield: state.plantsYield + eventValue);
         break;
       case 'energyStock':
-        newEvent = state.copyWith(energyStock: state.energyStock! + 100);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            energyStock: state.energyStock + eventValue);
         break;
       case 'energyYield':
-        newEvent = state.copyWith(energyYield: state.energyYield! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            energyYield: state.energyYield + eventValue);
         break;
       case 'heatStock':
-        newEvent = state.copyWith(heatStock: state.heatStock! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            heatStock: state.heatStock + eventValue);
         break;
       case 'heatYield':
-        newEvent = state.copyWith(heatYield: state.heatYield! + 1);
+        newEvent = state.copyWith(
+            resourceType: resourceType,
+            eventValue:
+                needDbInsert ? eventValue : state.eventValue + eventValue,
+            heatYield: state.heatYield + eventValue);
         break;
       default:
         newEvent = state.copyWith();
         break;
     }
-    state = newEvent;
-  }
 
-  void subtract(String resourceType) {
-    Event newEvent;
-
-    switch (resourceType) {
-      case 'terraformingRate':
-        newEvent = state.copyWith(
-            terraformingRate: state.terraformingRate! > 0
-                ? state.terraformingRate! - 1
-                : state.terraformingRate);
-        break;
-      case 'megaCreditStock':
-        newEvent = state.copyWith(
-            megaCreditStock: state.megaCreditStock! > 0
-                ? state.megaCreditStock! - 1
-                : state.megaCreditStock);
-        break;
-      case 'megaCreditYield':
-        newEvent = state.copyWith(
-            megaCreditYield: state.megaCreditYield! > -5
-                ? state.megaCreditYield! - 1
-                : state.megaCreditYield);
-        break;
-      case 'steelStock':
-        newEvent = state.copyWith(
-            steelStock: state.steelStock! > 0
-                ? state.steelStock! - 1
-                : state.steelStock);
-        break;
-      case 'steelYield':
-        newEvent = state.copyWith(
-            steelYield: state.steelYield! > 0
-                ? state.steelYield! - 1
-                : state.steelYield);
-        break;
-      case 'titaniumStock':
-        newEvent = state.copyWith(
-            titaniumStock: state.titaniumStock! > 0
-                ? state.titaniumStock! - 1
-                : state.titaniumStock);
-        break;
-      case 'titaniumYield':
-        newEvent = state.copyWith(
-            titaniumYield: state.titaniumYield! > 0
-                ? state.titaniumYield! - 1
-                : state.titaniumYield);
-        break;
-      case 'plantsStock':
-        newEvent = state.copyWith(
-            plantsStock: state.plantsStock! > 0
-                ? state.plantsStock! - 1
-                : state.plantsStock);
-        break;
-      case 'plantsYield':
-        newEvent = state.copyWith(
-            plantsYield: state.plantsYield! > 0
-                ? state.plantsYield! - 1
-                : state.plantsYield);
-        break;
-      case 'energyStock':
-        newEvent = state.copyWith(
-            energyStock: state.energyStock! > 0
-                ? state.energyStock! - 1
-                : state.energyStock);
-        break;
-      case 'energyYield':
-        newEvent = state.copyWith(
-            energyYield: state.energyYield! > 0
-                ? state.energyYield! - 1
-                : state.energyYield);
-        break;
-      case 'heatStock':
-        newEvent = state.copyWith(
-            heatStock:
-                state.heatStock! > 0 ? state.heatStock! - 1 : state.heatStock);
-        break;
-      case 'heatYield':
-        newEvent = state.copyWith(
-            heatYield:
-                state.heatYield! > 0 ? state.heatYield! - 1 : state.heatYield);
-        break;
-      default:
-        newEvent = state.copyWith();
-        break;
+    if (needDbInsert) {
+      EventService.insertEvent(state);
     }
-    state = newEvent;
-  }
 
-  void set(String resourceType, int value) {
-    Event newEvent;
-
-    switch (resourceType) {
-      case 'generation':
-        newEvent = state.copyWith(generation: value);
-        break;
-      case 'terraformingRate':
-        newEvent = state.copyWith(terraformingRate: value);
-        break;
-      case 'megaCreditStock':
-        newEvent = state.copyWith(megaCreditStock: value);
-        break;
-      case 'megaCreditYield':
-        newEvent = state.copyWith(megaCreditYield: value);
-        break;
-      case 'steelStock':
-        newEvent = state.copyWith(steelStock: value);
-        break;
-      case 'steelYield':
-        newEvent = state.copyWith(steelYield: value);
-        break;
-      case 'titaniumStock':
-        newEvent = state.copyWith(titaniumStock: value);
-        break;
-      case 'titaniumYield':
-        newEvent = state.copyWith(titaniumYield: value);
-        break;
-      case 'plantsStock':
-        newEvent = state.copyWith(plantsStock: value);
-        break;
-      case 'plantsYield':
-        newEvent = state.copyWith(plantsYield: value);
-        break;
-      case 'energyStock':
-        newEvent = state.copyWith(energyStock: value);
-        break;
-      case 'energyYield':
-        newEvent = state.copyWith(energyYield: value);
-        break;
-      case 'heatStock':
-        newEvent = state.copyWith(heatStock: value);
-        break;
-      case 'heatYield':
-        newEvent = state.copyWith(heatYield: value);
-        break;
-      default:
-        newEvent = state.copyWith();
-        break;
-    }
     state = newEvent;
   }
 
   void replace(Event event) {
     state = event;
+  }
+
+  void revoke(Event event) {
+    if (event.eventId == null) {
+      return;
+    } else {
+      replace(event);
+      EventService.deleteEventList(event.eventId!);
+    }
   }
 }
 

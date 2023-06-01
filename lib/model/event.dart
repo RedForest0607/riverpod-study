@@ -27,41 +27,41 @@ class EventFields {
 class Event {
   static const String tableName = 'TEVENT';
   final int? eventId;
-  final String? resourceType;
-  final int? eventValue;
-  final int? generation;
-  final int? terraformingRate;
-  final int? megaCreditStock;
-  final int? megaCreditYield;
-  final int? steelStock;
-  final int? steelYield;
-  final int? titaniumStock;
-  final int? titaniumYield;
-  final int? plantsStock;
-  final int? plantsYield;
-  final int? energyStock;
-  final int? energyYield;
-  final int? heatStock;
-  final int? heatYield;
+  final String resourceType;
+  final int eventValue;
+  final int generation;
+  final int terraformingRate;
+  final int megaCreditStock;
+  final int megaCreditYield;
+  final int steelStock;
+  final int steelYield;
+  final int titaniumStock;
+  final int titaniumYield;
+  final int plantsStock;
+  final int plantsYield;
+  final int energyStock;
+  final int energyYield;
+  final int heatStock;
+  final int heatYield;
 
   const Event({
     this.eventId,
-    this.resourceType,
-    this.eventValue,
-    this.generation,
-    this.terraformingRate,
-    this.megaCreditStock,
-    this.megaCreditYield,
-    this.steelStock,
-    this.steelYield,
-    this.titaniumStock,
-    this.titaniumYield,
-    this.plantsStock,
-    this.plantsYield,
-    this.energyStock,
-    this.energyYield,
-    this.heatStock,
-    this.heatYield,
+    required this.resourceType,
+    required this.eventValue,
+    required this.generation,
+    required this.terraformingRate,
+    required this.megaCreditStock,
+    required this.megaCreditYield,
+    required this.steelStock,
+    required this.steelYield,
+    required this.titaniumStock,
+    required this.titaniumYield,
+    required this.plantsStock,
+    required this.plantsYield,
+    required this.energyStock,
+    required this.energyYield,
+    required this.heatStock,
+    required this.heatYield,
   });
 
   factory Event.fromJson(Map<String, dynamic> json) {
@@ -111,33 +111,33 @@ class Event {
   int getValue(String resourceType) {
     switch (resourceType) {
       case 'generation':
-        return generation!;
+        return generation;
       case 'terraformingRate':
-        return terraformingRate!;
+        return terraformingRate;
       case 'megaCreditStock':
-        return megaCreditStock!;
+        return megaCreditStock;
       case 'megaCreditYield':
-        return megaCreditYield!;
+        return megaCreditYield;
       case 'steelStock':
-        return steelStock!;
+        return steelStock;
       case 'steelYield':
-        return steelYield!;
+        return steelYield;
       case 'titaniumStock':
-        return titaniumStock!;
+        return titaniumStock;
       case 'titaniumYield':
-        return titaniumYield!;
+        return titaniumYield;
       case 'plantsStock':
-        return plantsStock!;
+        return plantsStock;
       case 'plantsYield':
-        return plantsYield!;
+        return plantsYield;
       case 'energyStock':
-        return energyStock!;
+        return energyStock;
       case 'energyYield':
-        return energyYield!;
+        return energyYield;
       case 'heatStock':
-        return heatStock!;
+        return heatStock;
       case 'heatYield':
-        return heatYield!;
+        return heatYield;
       default:
         return 0;
     }

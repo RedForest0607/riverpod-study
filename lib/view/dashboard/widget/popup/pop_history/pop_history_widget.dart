@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/provider/history_provider.dart';
-
+import 'package:riverpod_study/service/event_service.dart';
 import 'package:riverpod_study/view/dashboard/widget/popup/pop_history/event_widget.dart';
 
-class PopHistoryWidget extends HookConsumerWidget {
+class PopHistoryWidget extends StatelessWidget {
   const PopHistoryWidget({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    List<Event> history = ref.watch(historyProvider).history;
-
+  Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: SizedBox(
-        child: Column(
-          children: <Widget>[
-            for (int i = history.length - 1; i > 0; i--)
-              EventWidget(eventNo: i),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 80,
-            ),
-          ],
-        ),
+        child: FutureBuilder<List<Event>>(
+            future: EventService.retrieveEventList(),
+            builder: (context, AsyncSnapshot<List<Event>> snapshot) {
+              if (snapshot.hasData) {
+                return Column(
+                  children: List.generate(
+                    snapshot.data!.length,
+                    (index) => EventWidget(
+                      event: snapshot.data![index],
+                    ),
+                  ),
+                );
+              } else if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              } else {
+                return const CircularProgressIndicator();
+              }
+            }),
       ),
     );
   }
