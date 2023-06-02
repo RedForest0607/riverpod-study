@@ -51,6 +51,9 @@ class EventNotifier extends Notifier<Event> {
     bool toBeModified = false;
 
     switch (resourceType) {
+      case 'generation':
+        toBeModified = true;
+        break;
       case 'terraformingRate':
         toBeModified = state.terraformingRate + eventValue >= 0;
         break;
