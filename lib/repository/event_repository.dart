@@ -27,6 +27,7 @@ class EventRepository {
         EventFields.heatStock,
         EventFields.heatYield,
       ],
+      orderBy: "${EventFields.eventId} DESC",
     );
 
     return result.map(
@@ -40,7 +41,7 @@ class EventRepository {
     Database db = await DBHelper().database;
     int result = await db.insert(
       Event.tableName,
-      event.toJson(),
+      event.toJson("insert"),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
     return result;

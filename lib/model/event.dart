@@ -86,9 +86,9 @@ class Event {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson(String queryType) {
     return {
-      EventFields.eventId: eventId,
+      EventFields.eventId: queryType == "insert" ? null : eventId,
       EventFields.resourceType: resourceType,
       EventFields.eventValue: eventValue,
       EventFields.generation: generation,
