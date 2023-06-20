@@ -1,26 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/model/expansion.dart';
-import 'dart:convert';
+import 'package:riverpod_study/common/constants.dart';
+import 'package:riverpod_study/view/startup/widget/corporation_widget.dart';
 
-class CorporationScreen extends HookConsumerWidget {
-  CorporationScreen({super.key});
+class CorporationScreen extends StatelessWidget {
+  const CorporationScreen({super.key, required this.ruleIndex});
 
   static String routeName = "/corporation";
-
-  final jsonDataProvider = FutureProvider<Expansion>((ref) async {
-    final jsonString = json.decode(
-      await rootBundle.loadString("resources/json/corporation_list.json"),
-    ) as Map<String, Object?>;
-
-    return Expansion.fromJson(jsonString);
-  });
+  final int ruleIndex;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final jsonData = ref.watch(jsonDataProvider);
-
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade900,
       appBar: PreferredSize(
@@ -33,23 +22,13 @@ class CorporationScreen extends HookConsumerWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: SizedBox(
-          child: Column(
-            children: [
-              // jsonData.when(
-              //   loading: () => const Text("loading..."),
-              //   error: (err, stack) => Text("Error: $err"),
-              //   data: (jsonData) {
-              //     // TODO: hadle async json data
-              //     for (int i = 0; i < 8; i++) {
-              //       SizedBox(
-              //         height: MediaQuery.of(context).size.height / 80,
-              //       );
-              //     }
-              //   },
-              // )
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            for (Map corpId in corporationList)
+              CorporationWidget(
+                  ruleIndex: ruleIndex, corporationId: corpId["corporationId"])
+          ],
         ),
       ),
     );
