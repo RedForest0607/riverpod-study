@@ -26,6 +26,7 @@ class EventNotifier extends Notifier<Event> {
   }
 
   void reset() {
+    EventService.deleteEventList(0);
     state = const Event(
         resourceType: 'initial',
         eventValue: 0,
