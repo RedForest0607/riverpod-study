@@ -54,4 +54,45 @@ class EventRepository {
         .delete(Event.tableName, where: 'EVENT_ID >= ?', whereArgs: [index]);
     return result;
   }
+
+  static Future<int> selectEventCount() async {
+    Database db = await DBHelper().database;
+    List<Map> result = await db.rawQuery('SELECT * from TEVENT');
+    int count = result.length;
+    return count;
+  }
+
+  static Future<List<Event>> selectLastEvent() async {
+    Database db = await DBHelper().database;
+    List<Map<String, Object?>> result = await db.query(
+      Event.tableName,
+      columns: [
+        EventFields.eventId,
+        EventFields.resourceType,
+        EventFields.eventValue,
+        EventFields.generation,
+        EventFields.terraformingRate,
+        EventFields.megaCreditStock,
+        EventFields.megaCreditYield,
+        EventFields.steelStock,
+        EventFields.steelYield,
+        EventFields.titaniumStock,
+        EventFields.titaniumYield,
+        EventFields.plantsStock,
+        EventFields.plantsYield,
+        EventFields.energyStock,
+        EventFields.energyYield,
+        EventFields.heatStock,
+        EventFields.heatYield,
+      ],
+      orderBy: "${EventFields.eventId} DESC",
+      limit: 1,
+    );
+
+    return result.map(
+      (data) {
+        return Event.fromJson(data);
+      },
+    ).toList();
+  }
 }

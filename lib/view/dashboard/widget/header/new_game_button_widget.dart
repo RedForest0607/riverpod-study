@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/provider/event_provider.dart';
+import 'package:riverpod_study/view/startup/rule_screen.dart';
 
 class NewGameButtonWidget extends HookConsumerWidget {
   const NewGameButtonWidget({super.key});
@@ -34,7 +35,10 @@ class NewGameButtonWidget extends HookConsumerWidget {
               TextButton(
                 onPressed: () => {
                   ref.read(eventProvider.notifier).reset(),
-                  Navigator.pop(context, 'OK'),
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RuleScreen()))
                 },
                 style: ButtonStyle(
                   overlayColor: MaterialStateProperty.resolveWith((states) {

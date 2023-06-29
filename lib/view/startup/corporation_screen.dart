@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_study/common/constants.dart';
 import 'package:riverpod_study/view/startup/widget/corporation_widget.dart';
+import 'package:riverpod_study/view/startup/widget/title_divider_widget.dart';
 
 class CorporationScreen extends StatelessWidget {
   const CorporationScreen({super.key, required this.ruleIndex});
@@ -25,9 +26,40 @@ class CorporationScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (Map corpId in corporationList)
-              CorporationWidget(
-                  ruleIndex: ruleIndex, corporationId: corpId["corporationId"])
+            for (Map corp in corporationList)
+              if (corp["expansionId"] == "original")
+                CorporationWidget(
+                    ruleIndex: ruleIndex, corporationId: corp["corporationId"]),
+            const TitleDividerWidget(title: "대기업시대"),
+            for (Map corp in corporationList)
+              if (corp["expansionId"] == "corporateEra")
+                CorporationWidget(
+                    ruleIndex: ruleIndex, corporationId: corp["corporationId"]),
+            const TitleDividerWidget(title: "비너스 넥스트"),
+            for (Map corp in corporationList)
+              if (corp["expansionId"] == "venusNext")
+                CorporationWidget(
+                    ruleIndex: ruleIndex, corporationId: corp["corporationId"]),
+            const TitleDividerWidget(title: "서곡"),
+            for (Map corp in corporationList)
+              if (corp["expansionId"] == "prelude")
+                CorporationWidget(
+                    ruleIndex: ruleIndex, corporationId: corp["corporationId"]),
+            const TitleDividerWidget(title: "개척기지"),
+            for (Map corp in corporationList)
+              if (corp["expansionId"] == "colonies")
+                CorporationWidget(
+                    ruleIndex: ruleIndex, corporationId: corp["corporationId"]),
+            const TitleDividerWidget(title: "격동"),
+            for (Map corp in corporationList)
+              if (corp["expansionId"] == "turmoil")
+                CorporationWidget(
+                    ruleIndex: ruleIndex, corporationId: corp["corporationId"]),
+            const TitleDividerWidget(title: "프로모션"),
+            for (Map corp in corporationList)
+              if (corp["expansionId"] == "promotion")
+                CorporationWidget(
+                    ruleIndex: ruleIndex, corporationId: corp["corporationId"]),
           ],
         ),
       ),

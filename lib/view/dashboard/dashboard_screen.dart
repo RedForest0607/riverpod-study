@@ -24,6 +24,7 @@ class DashboardScreen extends StatelessWidget {
             Size.fromHeight(MediaQuery.of(context).size.height * 0.05),
         child: AppBar(
           backgroundColor: Colors.transparent,
+          automaticallyImplyLeading: false,
           elevation: 0,
           centerTitle: true,
         ),

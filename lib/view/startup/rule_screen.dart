@@ -14,12 +14,13 @@ class RuleScreen extends StatelessWidget {
         preferredSize:
             Size.fromHeight(MediaQuery.of(context).size.height * 0.05),
         child: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,
         ),
       ),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RuleWidget(

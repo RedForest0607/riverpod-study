@@ -16,4 +16,14 @@ class EventService {
     int result = await EventRepository.deleteEventList(index);
     return result;
   }
+
+  static Future<int> selectEventCount() async {
+    int result = await EventRepository.selectEventCount();
+    return result;
+  }
+
+  static Future<List<Event>> selectLastEvent() async {
+    var lastEvent = await EventRepository.selectLastEvent();
+    return lastEvent;
+  }
 }

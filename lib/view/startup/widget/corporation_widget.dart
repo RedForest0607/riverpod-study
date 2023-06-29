@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_study/common/constants.dart';
+import 'package:riverpod_study/model/event.dart';
+import 'package:riverpod_study/provider/event_provider.dart';
+import 'package:riverpod_study/view/dashboard/dashboard_screen.dart';
 
-class CorporationWidget extends StatelessWidget {
+class CorporationWidget extends HookConsumerWidget {
   const CorporationWidget(
       {super.key, required this.ruleIndex, required this.corporationId});
 
   final int ruleIndex;
   final String corporationId;
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.fromLTRB(
@@ -31,7 +34,67 @@ class CorporationWidget extends StatelessWidget {
         ),
       ),
       child: ElevatedButton(
-        onPressed: () => {},
+        onPressed: () => {
+          ref.read(eventProvider.notifier).replace(
+                Event(
+                  eventId: null,
+                  resourceType: 'init',
+                  eventValue: 0,
+                  generation: 1,
+                  terraformingRate: ruleList[ruleIndex]["terraformingRate"] +
+                      corporationList
+                          .where(
+                              (corp) => corp["corporationId"] == corporationId)
+                          .first["terraformingRate"],
+                  megaCreditStock: corporationList
+                      .where((corp) => corp["corporationId"] == corporationId)
+                      .first["megaCreditStock"],
+                  megaCreditYield: ruleList[ruleIndex]["yieldIncrement"] +
+                      corporationList
+                          .where(
+                              (corp) => corp["corporationId"] == corporationId)
+                          .first["megaCreditYield"],
+                  steelStock: corporationList
+                      .where((corp) => corp["corporationId"] == corporationId)
+                      .first["steelStock"],
+                  steelYield: ruleList[ruleIndex]["yieldIncrement"] +
+                      corporationList
+                          .where(
+                              (corp) => corp["corporationId"] == corporationId)
+                          .first["steelYield"],
+                  titaniumStock: corporationList
+                      .where((corp) => corp["corporationId"] == corporationId)
+                      .first["titaniumStock"],
+                  titaniumYield: ruleList[ruleIndex]["yieldIncrement"] +
+                      corporationList
+                          .where(
+                              (corp) => corp["corporationId"] == corporationId)
+                          .first["titaniumYield"],
+                  plantsStock: corporationList
+                      .where((corp) => corp["corporationId"] == corporationId)
+                      .first["plantsStock"],
+                  plantsYield: ruleList[ruleIndex]["yieldIncrement"] +
+                      corporationList
+                          .where(
+                              (corp) => corp["corporationId"] == corporationId)
+                          .first["plantsYield"],
+                  energyStock: 0,
+                  energyYield: ruleList[ruleIndex]["yieldIncrement"] +
+                      corporationList
+                          .where(
+                              (corp) => corp["corporationId"] == corporationId)
+                          .first["energyYield"],
+                  heatStock: 0,
+                  heatYield: ruleList[ruleIndex]["yieldIncrement"] +
+                      corporationList
+                          .where(
+                              (corp) => corp["corporationId"] == corporationId)
+                          .first["heatYield"],
+                ),
+              ),
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DashboardScreen())),
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
