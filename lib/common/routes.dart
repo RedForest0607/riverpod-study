@@ -7,7 +7,7 @@ import 'package:riverpod_study/view/startup/rule_screen.dart';
 // All our routes will be available here
 final Map<String, WidgetBuilder> routes = {
   RuleScreen.routeName: (context) => const RuleScreen(),
-  DashboardScreen.routeName: (context) => const DashboardScreen(),
+  DashboardScreen.routeName: (context) => DashboardScreen(),
   HistoryScreen.routeName: (context) => const HistoryScreen(),
   RuleScreen.routeName: (context) => const RuleScreen(),
   //CorporationScreen.routeName: (context) => const CorporationScreen()

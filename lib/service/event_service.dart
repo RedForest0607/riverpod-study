@@ -1,5 +1,5 @@
-import 'package:riverpod_study/repository/event_repository.dart';
 import 'package:riverpod_study/model/event.dart';
+import 'package:riverpod_study/repository/event_repository.dart';
 
 class EventService {
   static Future<List<Event>> retrieveEventList() async {
@@ -12,13 +12,13 @@ class EventService {
     return result;
   }
 
-  static Future<int> deleteEventList(int index) async {
-    int result = await EventRepository.deleteEventList(index);
+  static Future<int> updateEvent(Event event) async {
+    int result = await EventRepository.updateEvent(event);
     return result;
   }
 
-  static Future<int> selectEventCount() async {
-    int result = await EventRepository.selectEventCount();
+  static Future<int> deleteEventList(int index) async {
+    int result = await EventRepository.deleteEventList(index);
     return result;
   }
 

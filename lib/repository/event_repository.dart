@@ -47,19 +47,51 @@ class EventRepository {
     return result;
   }
 
+  static Future<int> updateEvent(Event event) async {
+    Database db = await DBHelper().database;
+    int result = await db.rawUpdate(
+        'UPDATE TEVENT'
+        '   SET EVENT_VALUE = ?'
+        '     , TERRAFORMING_RATE = ?'
+        '     , MEGA_CREDIT_STOCK = ?'
+        '     , MEGA_CREDIT_YIELD = ?'
+        '     , STEEL_STOCK = ?'
+        '     , STEEL_YIELD = ?'
+        '     , TITANIUM_STOCK = ?'
+        '     , TITANIUM_YIELD = ?'
+        '     , PLANTS_STOCK = ?'
+        '     , PLANTS_YIELD = ?'
+        '     , ENERGY_STOCK = ?'
+        '     , ENERGY_YIELD = ?'
+        '     , HEAT_STOCK = ?'
+        '     , HEAT_YIELD = ?'
+        ' WHERE EVENT_ID = (SELECT MAX(E.EVENT_ID)'
+        '                    FROM TEVENT E)',
+        [
+          event.eventValue,
+          event.terraformingRate,
+          event.megaCreditStock,
+          event.megaCreditYield,
+          event.steelStock,
+          event.steelYield,
+          event.titaniumStock,
+          event.titaniumYield,
+          event.plantsStock,
+          event.plantsYield,
+          event.energyStock,
+          event.energyYield,
+          event.heatStock,
+          event.heatYield
+        ]);
+    return result;
+  }
+
   static Future<int> deleteEventList(int index) async {
     Database db = await DBHelper().database;
     int result = 0;
     result = await db
-        .delete(Event.tableName, where: 'EVENT_ID >= ?', whereArgs: [index]);
+        .delete(Event.tableName, where: 'EVENT_ID > ?', whereArgs: [index]);
     return result;
-  }
-
-  static Future<int> selectEventCount() async {
-    Database db = await DBHelper().database;
-    List<Map> result = await db.rawQuery('SELECT * from TEVENT');
-    int count = result.length;
-    return count;
   }
 
   static Future<List<Event>> selectLastEvent() async {

@@ -35,7 +35,7 @@ class CorporationWidget extends HookConsumerWidget {
       ),
       child: ElevatedButton(
         onPressed: () => {
-          ref.read(eventProvider.notifier).replace(
+          ref.read(eventProvider.notifier).initialize(
                 Event(
                   eventId: null,
                   resourceType: 'init',

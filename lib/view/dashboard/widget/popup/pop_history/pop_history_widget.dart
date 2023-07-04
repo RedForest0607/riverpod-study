@@ -16,7 +16,7 @@ class PopHistoryWidget extends StatelessWidget {
               if (snapshot.hasData) {
                 return Column(
                   children: List.generate(
-                    snapshot.data!.length-1,
+                    snapshot.data!.isNotEmpty ? snapshot.data!.length - 1 : 0,
                     (index) => EventWidget(
                       event: snapshot.data![index],
                     ),

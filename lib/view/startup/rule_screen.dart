@@ -20,7 +20,7 @@ class RuleScreen extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      body: Column(
+      body: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RuleWidget(

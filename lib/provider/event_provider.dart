@@ -6,7 +6,6 @@ class EventNotifier extends Notifier<Event> {
   @override
   Event build() {
     return const Event(
-        eventId: -1,
         resourceType: 'init',
         eventValue: 0,
         generation: 0,
@@ -28,7 +27,7 @@ class EventNotifier extends Notifier<Event> {
   void reset() {
     EventService.deleteEventList(0);
     state = const Event(
-        resourceType: 'initial',
+        resourceType: 'init',
         eventValue: 0,
         generation: 1,
         terraformingRate: 0,
@@ -111,8 +110,7 @@ class EventNotifier extends Notifier<Event> {
       case 'generation':
         newEvent = state.copyWith(
             resourceType: resourceType,
-            eventValue:
-                needDbInsert ? eventValue : state.eventValue + eventValue,
+            eventValue: eventValue,
             generation: state.generation + 1,
             megaCreditStock: state.megaCreditStock +
                 (state.megaCreditYield + state.terraformingRate),
@@ -219,13 +217,20 @@ class EventNotifier extends Notifier<Event> {
     }
 
     if (needDbInsert) {
-      EventService.insertEvent(state);
+      EventService.insertEvent(newEvent);
+    } else {
+      EventService.updateEvent(newEvent);
     }
 
     state = newEvent;
   }
 
   void replace(Event event) {
+    state = event;
+  }
+
+  void initialize(Event event) {
+    EventService.insertEvent(event);
     state = event;
   }
 

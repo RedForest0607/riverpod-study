@@ -5,9 +5,8 @@ import 'package:riverpod_study/view/dashboard/widget/block/yield_counter_widget.
 import 'package:riverpod_study/view/dashboard/widget/generation/generation_counter_widget.dart';
 import 'package:riverpod_study/view/dashboard/widget/header/header_widget.dart';
 import 'package:riverpod_study/view/dashboard/widget/terraforming_rate/terraforming_rate_counter_widget.dart';
-
-import 'package:riverpod_study/widget/resource_block_widget.dart';
 import 'package:riverpod_study/widget/generation_block_widget.dart';
+import 'package:riverpod_study/widget/resource_block_widget.dart';
 import 'package:riverpod_study/widget/terraforming_rate_block_widget.dart';
 
 class DashboardScreen extends StatelessWidget {
