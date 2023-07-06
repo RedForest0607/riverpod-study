@@ -1,5 +1,5 @@
-import 'package:riverpod_study/common/db_helper.dart';
-import 'package:riverpod_study/model/event.dart';
+import 'package:tefoma/common/db_helper.dart';
+import 'package:tefoma/model/event.dart';
 import 'package:sqflite/sqflite.dart';
 
 class EventRepository {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/view/dashboard/widget/header/history_button_widget.dart';
-import 'package:riverpod_study/view/dashboard/widget/header/new_game_button_widget.dart';
+import 'package:tefoma/view/dashboard/widget/header/history_button_widget.dart';
+import 'package:tefoma/view/dashboard/widget/header/new_game_button_widget.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key, this.height});

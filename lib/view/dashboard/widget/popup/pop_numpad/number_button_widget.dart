@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/provider/delta_provider.dart';
-import 'package:riverpod_study/provider/event_provider.dart';
+import 'package:tefoma/provider/delta_provider.dart';
+import 'package:tefoma/provider/event_provider.dart';
 
 class NumberButtonWidget extends HookConsumerWidget {
   const NumberButtonWidget(

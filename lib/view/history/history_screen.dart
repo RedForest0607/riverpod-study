@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/common/enum/counter_enum.dart';
-import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/view/history/widget/counter/generation_history_counter_widget.dart';
-import 'package:riverpod_study/view/history/widget/counter/stock_history_counter_widget.dart';
-import 'package:riverpod_study/view/history/widget/counter/terraforming_rate_history_counter_widget.dart';
-import 'package:riverpod_study/view/history/widget/counter/yield_history_counter_widget.dart';
-import 'package:riverpod_study/view/history/widget/header/header_widget.dart';
-import 'package:riverpod_study/widget/generation_block_widget.dart';
-import 'package:riverpod_study/widget/resource_block_widget.dart';
-import 'package:riverpod_study/widget/terraforming_rate_block_widget.dart';
+import 'package:tefoma/common/enum/counter_enum.dart';
+import 'package:tefoma/model/event.dart';
+import 'package:tefoma/view/history/widget/counter/generation_history_counter_widget.dart';
+import 'package:tefoma/view/history/widget/counter/stock_history_counter_widget.dart';
+import 'package:tefoma/view/history/widget/counter/terraforming_rate_history_counter_widget.dart';
+import 'package:tefoma/view/history/widget/counter/yield_history_counter_widget.dart';
+import 'package:tefoma/view/history/widget/header/header_widget.dart';
+import 'package:tefoma/widget/generation_block_widget.dart';
+import 'package:tefoma/widget/resource_block_widget.dart';
+import 'package:tefoma/widget/terraforming_rate_block_widget.dart';
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});

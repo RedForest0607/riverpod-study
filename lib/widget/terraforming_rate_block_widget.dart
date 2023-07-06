@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/view/dashboard/widget/block_header_widget.dart';
+import 'package:tefoma/view/dashboard/widget/block_header_widget.dart';
 
 class TerraformingRateBlockWidget extends StatelessWidget {
   const TerraformingRateBlockWidget(

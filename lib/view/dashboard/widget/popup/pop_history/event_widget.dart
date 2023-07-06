@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/common/enum/counter_enum.dart';
-import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/view/history/history_screen.dart';
+import 'package:tefoma/common/enum/counter_enum.dart';
+import 'package:tefoma/model/event.dart';
+import 'package:tefoma/view/history/history_screen.dart';
 
 class EventWidget extends StatelessWidget {
   const EventWidget({super.key, required this.event});

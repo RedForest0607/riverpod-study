@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/service/event_service.dart';
-import 'package:riverpod_study/view/dashboard/widget/popup/pop_history/event_widget.dart';
+import 'package:tefoma/model/event.dart';
+import 'package:tefoma/service/event_service.dart';
+import 'package:tefoma/view/dashboard/widget/popup/pop_history/event_widget.dart';
 
 class PopHistoryWidget extends StatelessWidget {
   const PopHistoryWidget({super.key});

@@ -1,4 +1,4 @@
-import 'package:riverpod_study/model/event.dart';
+import 'package:tefoma/model/event.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
