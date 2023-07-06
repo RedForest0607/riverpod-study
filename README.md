@@ -1,5 +1,5 @@
-# riverpod-study
- repo for riverpod study
+# tefoma
+ terraforming mars scoreboard project - to study flutter
 
 ## installation
 ```yml
