@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/provider/event_provider.dart';
-import 'package:riverpod_study/view/dashboard/widget/popup/pop_common_widget.dart';
-import 'package:riverpod_study/view/dashboard/widget/popup/pop_numpad/pop_numpad_widget.dart';
+import 'package:tefoma/model/event.dart';
+import 'package:tefoma/provider/event_provider.dart';
+import 'package:tefoma/view/dashboard/widget/popup/pop_common_widget.dart';
+import 'package:tefoma/view/dashboard/widget/popup/pop_numpad/pop_numpad_widget.dart';
 
 class StockCounterWidget extends HookConsumerWidget {
   const StockCounterWidget({super.key, required this.id, required this.title});

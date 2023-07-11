@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/view/startup/widget/rule_widget.dart';
+import 'package:tefoma/view/startup/widget/rule_widget.dart';
 
 class RuleScreen extends StatelessWidget {
   const RuleScreen({super.key});
@@ -20,7 +20,7 @@ class RuleScreen extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RuleWidget(

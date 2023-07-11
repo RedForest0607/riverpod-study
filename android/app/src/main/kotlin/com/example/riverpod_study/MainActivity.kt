@@ -1,4 +1,4 @@
-package com.example.riverpod_study
+package com.example.tefoma
 
 import io.flutter.embedding.android.FlutterActivity
 

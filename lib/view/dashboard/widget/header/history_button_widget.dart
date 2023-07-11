@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/view/dashboard/widget/popup/pop_common_widget.dart';
-import 'package:riverpod_study/view/dashboard/widget/popup/pop_history/pop_history_widget.dart';
+import 'package:tefoma/view/dashboard/widget/popup/pop_common_widget.dart';
+import 'package:tefoma/view/dashboard/widget/popup/pop_history/pop_history_widget.dart';
 
 class HistoryButtonWidget extends StatelessWidget {
   const HistoryButtonWidget({super.key});

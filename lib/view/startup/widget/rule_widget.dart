@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/common/constants.dart';
-import 'package:riverpod_study/view/startup/corporation_screen.dart';
+import 'package:tefoma/common/constants.dart';
+import 'package:tefoma/view/startup/corporation_screen.dart';
 
 class RuleWidget extends StatelessWidget {
   const RuleWidget({super.key, required this.ruleIndex});

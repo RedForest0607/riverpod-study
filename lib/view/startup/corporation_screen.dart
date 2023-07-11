@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_study/common/constants.dart';
-import 'package:riverpod_study/view/startup/widget/corporation_widget.dart';
-import 'package:riverpod_study/view/startup/widget/title_divider_widget.dart';
+import 'package:tefoma/common/constants.dart';
+import 'package:tefoma/view/startup/widget/corporation_widget.dart';
+import 'package:tefoma/view/startup/widget/title_divider_widget.dart';
 
 class CorporationScreen extends StatelessWidget {
   const CorporationScreen({super.key, required this.ruleIndex});

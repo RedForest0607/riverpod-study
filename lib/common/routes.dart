@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:riverpod_study/view/dashboard/dashboard_screen.dart';
-import 'package:riverpod_study/view/history/history_screen.dart';
-import 'package:riverpod_study/view/startup/rule_screen.dart';
+import 'package:tefoma/view/dashboard/dashboard_screen.dart';
+import 'package:tefoma/view/history/history_screen.dart';
+import 'package:tefoma/view/startup/rule_screen.dart';
 
 // We use name route
 // All our routes will be available here

@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/service/event_service.dart';
+import 'package:tefoma/model/event.dart';
+import 'package:tefoma/service/event_service.dart';
 
 class EventNotifier extends Notifier<Event> {
   @override

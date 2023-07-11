@@ -1,5 +1,5 @@
-import 'package:riverpod_study/model/event.dart';
-import 'package:riverpod_study/repository/event_repository.dart';
+import 'package:tefoma/model/event.dart';
+import 'package:tefoma/repository/event_repository.dart';
 
 class EventService {
   static Future<List<Event>> retrieveEventList() async {
