@@ -55,43 +55,56 @@ class EventNotifier extends Notifier<Event> {
         toBeModified = true;
         break;
       case 'terraformingRate':
-        toBeModified = state.terraformingRate + eventValue >= 0;
+        toBeModified = (state.terraformingRate + eventValue >= 0) &&
+            (state.terraformingRate + eventValue < 999);
         break;
       case 'megaCreditStock':
-        toBeModified = state.megaCreditStock + eventValue >= 0;
+        toBeModified = (state.megaCreditStock + eventValue >= 0) &&
+            (state.megaCreditStock + eventValue < 999);
         break;
       case 'megaCreditYield':
-        toBeModified = state.megaCreditYield + eventValue >= -5;
+        toBeModified = (state.megaCreditYield + eventValue >= -5) &&
+            (state.megaCreditYield + eventValue < 999);
         break;
       case 'steelStock':
-        toBeModified = state.steelStock + eventValue >= 0;
+        toBeModified = (state.steelStock + eventValue >= 0) &&
+            (state.steelStock + eventValue < 999);
         break;
       case 'steelYield':
-        toBeModified = state.steelYield + eventValue >= 0;
+        toBeModified = (state.steelYield + eventValue >= 0) &&
+            (state.steelYield + eventValue < 999);
         break;
       case 'titaniumStock':
-        toBeModified = state.titaniumStock + eventValue >= 0;
+        toBeModified = (state.titaniumStock + eventValue >= 0) &&
+            (state.titaniumStock + eventValue < 999);
         break;
       case 'titaniumYield':
-        toBeModified = state.titaniumYield + eventValue >= 0;
+        toBeModified = (state.titaniumYield + eventValue >= 0) &&
+            (state.titaniumYield + eventValue < 999);
         break;
       case 'plantsStock':
-        toBeModified = state.plantsStock + eventValue >= 0;
+        toBeModified = (state.plantsStock + eventValue >= 0) &&
+            (state.plantsStock + eventValue < 999);
         break;
       case 'plantsYield':
-        toBeModified = state.plantsYield + eventValue >= 0;
+        toBeModified = (state.plantsYield + eventValue >= 0) &&
+            (state.plantsYield + eventValue < 999);
         break;
       case 'energyStock':
-        toBeModified = state.energyStock + eventValue >= 0;
+        toBeModified = (state.energyStock + eventValue >= 0) &&
+            (state.energyStock + eventValue < 999);
         break;
       case 'energyYield':
-        toBeModified = state.energyYield + eventValue >= 0;
+        toBeModified = (state.energyYield + eventValue >= 0) &&
+            (state.energyYield + eventValue < 999);
         break;
       case 'heatStock':
-        toBeModified = state.heatStock + eventValue >= 0;
+        toBeModified = (state.heatStock + eventValue >= 0) &&
+            (state.heatStock + eventValue < 999);
         break;
       case 'heatYield':
-        toBeModified = state.heatYield + eventValue >= 0;
+        toBeModified = (state.heatYield + eventValue >= 0) &&
+            (state.heatYield + eventValue < 999);
         break;
       default:
         toBeModified = false;
