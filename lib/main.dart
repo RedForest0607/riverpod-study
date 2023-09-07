@@ -23,9 +23,11 @@ class TerraformingDashboard extends HookConsumerWidget {
       future: EventService.selectLastEvent(),
       builder: (BuildContext context, AsyncSnapshot<List<Event>> snapshot) {
         if (snapshot.hasData) {
-          Future.delayed(Duration.zero, () {
-            ref.read(eventProvider.notifier).replace(snapshot.data!.first);
-          });
+          if (snapshot.data!.isNotEmpty) {
+            Future.delayed(Duration.zero, () {
+              ref.read(eventProvider.notifier).replace(snapshot.data!.first);
+            });
+          }
           return MaterialApp(
             title: 'Terraforming Dashboard',
             debugShowCheckedModeBanner: false,
