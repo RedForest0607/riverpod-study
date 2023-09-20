@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "557889763211",
+    "project_id": "tefoma-d392b",
+    "storage_bucket": "tefoma-d392b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557889763211:android:3ecc237175bfb9f87ee18e",
+        "android_client_info": {
+          "package_name": "com.peach_tri.tefoma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "557889763211-tegr84v7cpeibp4in31l1d3t1p43gkhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6VMSUwUwRpTE1bfsXKYydoTFlMsfz7nc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "557889763211-tegr84v7cpeibp4in31l1d3t1p43gkhk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tefoma">
+    package="com.peach_tri.tefoma">
    <application
         android:label="테포마"
         android:name="${applicationName}"
