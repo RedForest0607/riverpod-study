@@ -64,6 +64,6 @@ class DefaultFirebaseOptions {
     projectId: 'tefoma-d392b',
     storageBucket: 'tefoma-d392b.appspot.com',
     iosClientId: '557889763211-nmi4h1sunsut2v8bqgic8k95sd29r80j.apps.googleusercontent.com',
-    iosBundleId: 'com.example.riverpodStudy',
+    iosBundleId: 'com.peach_tri.tefoma',
   );
 }
