@@ -21,3 +21,5 @@ dev_dependencies:
   riverpod_generator: ^1.1.1
  ```
  `flutter pub get` 후 `flutter pub run build_runner watch`
+
+[google play store](https://play.google.com/store/apps/details?id=com.peach_tri.tefoma)
